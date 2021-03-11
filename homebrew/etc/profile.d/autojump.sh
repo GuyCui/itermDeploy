@@ -1,0 +1,1 @@
+../../Cellar/autojump/22.5.3_2/etc/profile.d/autojump.sh
