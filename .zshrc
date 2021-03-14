@@ -1,10 +1,21 @@
+# 设置antigen插件管理器
+source /opt/homebrew/share/antigen/antigen.zsh
+# 加载 oh-my-zsh's 库.
+antigen use oh-my-zsh
+
+# 设置快速跳转插件
+antigen bundle rupa/z z.sh
+
+# 最后必须提交确认修改
+antigen apply
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-export USER='mingzhi Cui.dev'
+# export USER='mingzhi Cui.dev'
 export LANGUAGE=en_US.UTF-8
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -13,21 +24,17 @@ export LANGUAGE=en_US.UTF-8
 export ZSH=$HOME/.oh-my-zsh
 
 # 导入antigen.zsh文件
-source ~/.antigen.zsh
+# source ~/.antigen.zsh
 # 使用ohmyzsh
-antigen use oh-my-zsh
+# antigen use oh-my-zsh
 
 # 添加要使用的ohmyzsh插件，可以在ohmyzsh项目plugins文件夹下找到
-antigen bundle command-not-found
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-completions
-antigen bundle zsh-users/zsh-autosuggestions
+#antigen bundle command-not-found
+#antigen bundle zsh-users/zsh-syntax-highlighting
+#antigen bundle zsh-users/zsh-completions
+#antigen bundle zsh-users/zsh-autosuggestions
 # 设置主题，主题可以在ohmyzsh项目themes下找到
-antigen theme robbyrussell
-
-# 最后必须提交确认修改
-antigen apply
-
+#antigen theme robbyrussell
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -113,9 +120,7 @@ plugins=(
   cp
   zsh-completions
   sudo
-  autojump
   git-open
-  autojump
   zsh-autosuggestions
   zsh-syntax-highlighting
 )
@@ -123,7 +128,7 @@ autoload -U compinit && compinit
 source $ZSH/oh-my-zsh.sh
 
 # 打开配置文件
-alias config="code ~/.zshrc"
+alias config="vim ~/.zshrc"
 # 重新加载配置文件
 alias reload="source ~/.zshrc"
 
@@ -143,7 +148,7 @@ function copy() {
 
 alias now='date "+%Y-%m-%d %H:%M:%S"'
 
-alias -s {js,css,java,json}='code'      # 在命令行直接输入 python 文件，会用 vim 中打开，以下类似
+alias -s {js,css,java,json}='idea'      # 在命令行直接输入 python 文件，会用 vim 中打开，以下类似
 alias -s md='code'
 alias -s txt='vim'
 
@@ -167,6 +172,7 @@ alias lock="pmset displaysleepnow"
 
 alias kill="pkill"
 
+alias ls='exa'
 # alias npm="sudo npm"
 # alias yarn="sudo yarn"
 
@@ -205,8 +211,13 @@ export EDITOR='code'
 path=('/opt/homebrew/bin' $path)
 export PATH
 
+# 自动纠正终端命令
+eval $(thefuck --alias)
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # 设置目录快速跳转插件
 [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
+# 设置阿里云镜像
+export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.aliyun.com/homebrew/homebrew-bottles
