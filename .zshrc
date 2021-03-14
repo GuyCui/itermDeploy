@@ -4,7 +4,8 @@
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-
+export USER='mingzhi Cui.dev'
+export LANGUAGE=en_US.UTF-8
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -92,6 +93,7 @@ SPACESHIP_TIME_SHOW="true"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="yyyy-mm-dd"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -103,13 +105,73 @@ SPACESHIP_TIME_SHOW="true"
 # Add wisely, as too many plugins slow down shell startup.
 # plugins=(git)
 plugins=(
+  you-should-use
   git
+  hitokoto
+  command-not-found
+  vi-mode
+  cp
+  zsh-completions
+  sudo
+  autojump
+  git-open
   autojump
   zsh-autosuggestions
   zsh-syntax-highlighting
 )
-
+autoload -U compinit && compinit
 source $ZSH/oh-my-zsh.sh
+
+# 打开配置文件
+alias config="code ~/.zshrc"
+# 重新加载配置文件
+alias reload="source ~/.zshrc"
+
+# npm 清理
+alias npmclean="rm -rf node_modules && rm -rf package-lock.json"
+# npm 重装
+alias npmreinstall="rm -rf node_modules && rm -rf package-lock.json && npm install"
+
+# git 设置别名
+alias g="git"
+
+alias typora="open -a typora"
+
+function copy() {
+	pbcopy < $1
+}
+
+alias now='date "+%Y-%m-%d %H:%M:%S"'
+
+alias -s {js,css,java,json}='code'      # 在命令行直接输入 python 文件，会用 vim 中打开，以下类似
+alias -s md='code'
+alias -s txt='vim'
+
+alias mkdir='mkdir -pv'
+
+# 查看文件/目录大小
+
+alias size='f(){ du -sh $1* | sort -hr; }; f'
+
+alias cp='cp -i'
+alias rm='rm -i'
+alias mv='mv -i'
+
+alias cls='clear'
+
+alias gs='git status'
+alias gc='git checkout'
+alias log="git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+
+alias lock="pmset displaysleepnow"
+
+alias kill="pkill"
+
+# alias npm="sudo npm"
+# alias yarn="sudo yarn"
+
+alias weather='curl wttr.in'
+
 
 # User configuration
 
@@ -124,6 +186,8 @@ source $ZSH/oh-my-zsh.sh
 # else
 #   export EDITOR='mvim'
 # fi
+export NODE_OPTIONS=--max_old_space_size=4096
+export EDITOR='code'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
