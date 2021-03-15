@@ -6,7 +6,7 @@
 " ==================================================
 " Leader 键篇
 " ==================================================
-
+nnoremap <SPACE> <Nop>
 let mapleader=' '
 
 " 语法高亮
@@ -35,6 +35,7 @@ set ignorecase
 " 其他情况都是大小写不敏感。比如，搜索Test时，将不匹配test；搜索test时，将匹配Test
 set smartcase
 
+set argtextobj
 
 " 设置输入法切换
 set keep-english-in-normal-and-restore-in-insert
@@ -207,7 +208,8 @@ nnoremap <Leader>t :action Javascript.Linters.EsLint.Fix<CR>
 nnoremap <Leader>T :action ReformatCode<CR>
 
 " 设置debug为 C-d
-nnoremap <C-d> :action Debug<CR>
+nnoremap <C-d> :action ChooseDebugConfiguration<CR>
+" nnoremap <Leader>cd :action ChooseDebugConfiguration<CR>
 
 " 展示文件路径 可以快速打 Finder 中打开
 nnoremap <Leader>F :action ShowFilePath<CR>
@@ -230,6 +232,12 @@ nnoremap <Leader>g :action ActivateVersionControlToolWindow<CR>
 " 隐藏激活面板
 nnoremap <Leader>z :action HideActiveWindow<CR>
 
+" 打开idea的文件窗
+nnoremap <leader>or :action FileMenu<CR>
+
+" 查看使用帮助
+nnoremap m :actionlist<CR>
+
 " 应用建议
 nnoremap <Leader>s :action ShowIntentionActions<CR>
 
@@ -241,4 +249,24 @@ nnoremap <Leader>= <C-a>
 nnoremap <Leader>1 :action ChangeLaf<CR>
 
 " Reload .ideavimrc
-nnoremap <Leader>S :source ~/.ideavimrc<CR>
+" nnoremap <Leader>S :source ~/.ideavimrc <CR>
+nnoremap <leader>vs :source ~/.ideavimrc<CR>
+
+
+"跳转到测试类(没有则自动建立)
+nnoremap <Leader>gt :action GotoTest<CR>
+"显示当前文件路径
+nnoremap <Leader>fp :action ShowFilePath<CR>
+
+"**maven窗口
+nnoremap <Leader>mv :action ActivateMavenProjectsToolWindow<CR>
+"修改所有的关联名字
+nnoremap <Leader>re :action RenameElement<CR>
+
+"打开终端
+nnoremap <Leader>ot :action Terminal.OpenInTerminal<CR>
+
+"终端移动到编辑区
+nnoremap <Leader>me :action Terminal.MoveToEditor<CR>
+
+noremap <leader>t <ESC>:action Refactorings.QuickListPopupAction<CR>
