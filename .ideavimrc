@@ -35,8 +35,6 @@ set ignorecase
 " 其他情况都是大小写不敏感。比如，搜索Test时，将不匹配test；搜索test时，将匹配Test
 set smartcase
 
-set argtextobj
-
 " 设置输入法切换
 set keep-english-in-normal-and-restore-in-insert
 
@@ -94,6 +92,9 @@ set textobj-entire
 
 " auto switch input model
 set keep-english-in-normal
+
+" argtextobj插件
+set argtextobj
 
 " ==================================================
 " 映射篇
@@ -188,7 +189,7 @@ nnoremap <Leader>Q :action ShowBookmarks<CR>
 
 " 注释与重命名
 nnoremap <Leader>r :action CommentByLineComment<CR>
-nnoremap <Leader>R :action RenameElement<CR>
+nnoremap <Leader>re :action RenameElement<CR>
 
 " 跳转到定位
 nnoremap <M-b> :action GotoDeclaration<CR>
@@ -220,14 +221,14 @@ nnoremap <Leader>b :action ToggleLineBreakpoint<CR>
 " Ace jump
 nnoremap <Leader>f :action AceAction<CR>
 
-" 聚焦项目栏
+" 选择打开的文件
 nnoremap <Leader>\ :action SelectInProjectView<CR>
 
 " 显示隐藏 Todo List
 nnoremap <Leader>A :action ActivateTODOToolWindow<CR>
 
-" 显示隐藏 Git Panel
-nnoremap <Leader>g :action ActivateVersionControlToolWindow<CR>
+" 显示隐藏 Git Commit
+nnoremap <Leader>gc :action ActivateCommitToolWindow<CR>
 
 " 隐藏激活面板
 nnoremap <Leader>z :action HideActiveWindow<CR>
@@ -249,24 +250,19 @@ nnoremap <Leader>= <C-a>
 nnoremap <Leader>1 :action ChangeLaf<CR>
 
 " Reload .ideavimrc
-" nnoremap <Leader>S :source ~/.ideavimrc <CR>
 nnoremap <leader>vs :source ~/.ideavimrc<CR>
 
 
-"跳转到测试类(没有则自动建立)
+" 跳转到测试类(没有则自动建立)
 nnoremap <Leader>gt :action GotoTest<CR>
-"显示当前文件路径
+" 显示当前文件路径
 nnoremap <Leader>fp :action ShowFilePath<CR>
 
-"**maven窗口
-nnoremap <Leader>mv :action ActivateMavenProjectsToolWindow<CR>
-"修改所有的关联名字
-nnoremap <Leader>re :action RenameElement<CR>
+" maven窗口
+nnoremap <Leader>mv :action ActivateMavenToolWindow<CR>
 
-"打开终端
+" 打开终端
 nnoremap <Leader>ot :action Terminal.OpenInTerminal<CR>
 
-"终端移动到编辑区
+" 终端移动到编辑区
 nnoremap <Leader>me :action Terminal.MoveToEditor<CR>
-
-noremap <leader>t <ESC>:action Refactorings.QuickListPopupAction<CR>
