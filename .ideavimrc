@@ -279,6 +279,9 @@ nnoremap <Leader>z :action HideActiveWindow<CR>
 " 打开idea的文件窗
 nnoremap <leader>or :action FileMenu<CR>
 
+" 引入常量
+nnoremap <leader>ic :action IntroduceConstant<CR>
+
 " 查看使用帮助
 nnoremap m :actionlist<CR>
 
