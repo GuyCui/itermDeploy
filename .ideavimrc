@@ -53,6 +53,12 @@ set noback
 " 搜索时，高亮显示匹配结果
 " set hlsearch
 
+" 通过使用: commands命令，告诉我们文件的哪一行被改变过
+set report=0
+
+" 在被分割的窗口间显示空白，便于阅读
+set fillchars=vert:\ ,stl:\ ,stlnc:\
+
 " 输入搜索模式时，每输入一个字符，就自动跳到第一个匹配的结果
 set incsearch
 
@@ -161,18 +167,18 @@ noremap L $
 noremap H ^
 
 " 设置 x c d action 的寄存器不与系统进行交互
-nnoremap x "xx
-xnoremap x "xx
-nnoremap X "xX
-xnoremap X "xX
-nnoremap c "cc
-xnoremap c "cc
-nnoremap C "cC
-xnoremap C "cC
-nnoremap d "dd
-vnoremap d "dd
-vnoremap D "dD
-nnoremap D "dD
+" nnoremap x "xx
+" xnoremap x "xx
+" nnoremap X "xX
+" xnoremap X "xX
+" nnoremap c "cc
+" xnoremap c "cc
+" nnoremap C "cC
+" xnoremap C "cC
+" nnoremap d "dd
+" vnoremap d "dd
+" vnoremap D "dD
+" nnoremap D "dD
 
 " 移动时 自动定位到屏幕中心
 noremap j jzz
