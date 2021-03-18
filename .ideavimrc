@@ -245,6 +245,7 @@ nnoremap <Leader>o :action FileStructurePopup<CR>
 
 " 使用 ESLint 格式化代码
 nnoremap <Leader>T :action Javascript.Linters.EsLint.Fix<CR>
+
 " 格式化代码
 nnoremap <Leader>t :action ReformatCode<CR>
 
