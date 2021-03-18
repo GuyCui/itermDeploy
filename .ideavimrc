@@ -29,8 +29,8 @@
 " 配置篇
 " ==================================================
 
-nnoremap <SPACE> <Nop>
-let mapLeader=' '
+" nnoremap <SPACE> <Nop>
+let mapleader="\<Space>"
 
 " 语法高亮
 syntax on
@@ -220,7 +220,7 @@ nnoremap <Leader>k :action GotoPreviousError<CR>
 nnoremap <Leader>j :action GotoNextError<CR>
 
 " 最近文件, 最近位置 列表显示
-nnoremap <Leader>e :action RecentFiles<CR>
+nnoremap <Leader>rf :action RecentFiles<CR>
 nnoremap <Leader>E :action RecentLocations<CR>
 
 " 书签操作
@@ -247,7 +247,7 @@ nnoremap <Leader>o :action FileStructurePopup<CR>
 nnoremap <Leader>T :action Javascript.Linters.EsLint.Fix<CR>
 
 " 格式化代码
-nnoremap <Leader>rt :action ReformatCode<CR>
+nnoremap <Leader>tr :action ReformatCode<CR>
 
 " 设置debug为 C-d
 nnoremap <C-d> :action ChooseDebugConfiguration<CR>
