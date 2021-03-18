@@ -30,7 +30,7 @@
 " ==================================================
 
 nnoremap <SPACE> <Nop>
-let mapleader=' '
+let mapLeader=' '
 
 " 语法高亮
 syntax on
@@ -247,7 +247,7 @@ nnoremap <Leader>o :action FileStructurePopup<CR>
 nnoremap <Leader>T :action Javascript.Linters.EsLint.Fix<CR>
 
 " 格式化代码
-nnoremap <Leader>t :action ReformatCode<CR>
+nnoremap <Leader>rt :action ReformatCode<CR>
 
 " 设置debug为 C-d
 nnoremap <C-d> :action ChooseDebugConfiguration<CR>
@@ -275,16 +275,16 @@ nnoremap <Leader>gc :action ActivateCommitToolWindow<CR>
 nnoremap <Leader>z :action HideActiveWindow<CR>
 
 " 打开idea的文件窗
-nnoremap <leader>or :action FileMenu<CR>
+nnoremap <Leader>or :action FileMenu<CR>
 
 " 引入常量
-nnoremap <leader>ic :action IntroduceConstant<CR>
+nnoremap <Leader>ic :action IntroduceConstant<CR>
 
 " 引入变量
-nnoremap <leader>iv :action IntroduceVariable<CR>
+nnoremap <Leader>iv :action IntroduceVariable<CR>
 
 " 环绕代码片段
-nnoremap <leader>sw :action SurroundWith<CR>
+nnoremap <Leader>sw :action SurroundWith<CR>
 
 " 提取方法
 nnoremap <Leader>ef :action ExtractMethod<CR>
@@ -297,6 +297,12 @@ vnoremap <Leader>tl y<CR>:action ActivateTerminalToolWindow<CR>
 " 查看使用帮助
 nnoremap m :actionlist<CR>
 
+" 上一个页签
+nnoremap <Leader>u :action PreviousTab<CR>
+
+" 下一页签
+nnoremap <Leader>d :action NextTab<CR>
+
 " 应用建议
 nnoremap <Leader>s :action ShowIntentionActions<CR>
 
@@ -308,7 +314,7 @@ nnoremap <Leader>= <C-a>
 nnoremap <Leader>1 :action ChangeLaf<CR>
 
 " Reload .ideavimrc
-nnoremap <leader>vs :source ~/.ideavimrc<CR>
+nnoremap <Leader>vs :source ~/.ideavimrc<CR>
 
 " 跳转到测试类(没有则自动建立)
 nnoremap <Leader>gt :action GotoTest<CR>
