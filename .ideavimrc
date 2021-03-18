@@ -282,6 +282,20 @@ nnoremap <leader>or :action FileMenu<CR>
 " 引入常量
 nnoremap <leader>ic :action IntroduceConstant<CR>
 
+" 引入变量
+nnoremap <leader>iv :action IntroduceVariable<CR>
+
+" 环绕代码片段
+nnoremap <leader>sw :action SurroundWith<CR>
+
+" 提取方法
+nnoremap <Leader>ef :action ExtractMethod<CR>
+vnoremap <Leader>ef :action ExtractFunction<CR>
+
+" 打开Terminal工具视图
+nnoremap <Leader>tl Vy<CR>:action ActivateTerminalToolWindow<CR>
+vnoremap <Leader>tl y<CR>:action ActivateTerminalToolWindow<CR>
+
 " 查看使用帮助
 nnoremap m :actionlist<CR>
 
@@ -303,6 +317,3 @@ nnoremap <Leader>gt :action GotoTest<CR>
 
 " maven窗口
 nnoremap <Leader>mv :action ActivateMavenToolWindow<CR>
-
-" 打开终端
-nnoremap <Leader>ot :action Terminal.OpenInTerminal<CR>
