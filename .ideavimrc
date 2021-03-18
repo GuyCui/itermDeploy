@@ -69,9 +69,6 @@ set ignorecase
 " 其他情况都是大小写不敏感。比如，搜索Test时，将不匹配test；搜索test时，将匹配Test
 set smartcase
 
-" 设置输入法切换
-set keep-english-in-normal-and-restore-in-insert
-
 " 不与 Vi 兼容（采用 Vim 自己的操作命令）
 set nocompatible
 
@@ -133,8 +130,8 @@ set surround
 " {action}ae -> {action}entire-content
 set textobj-entire
 
-" auto switch input model
-set keep-english-in-normal
+" 设置输入法切换
+set keep-english-in-normal-and-restore-in-insert
 
 " argtextobj插件
 set argtextobj
@@ -231,8 +228,8 @@ nnoremap <Leader>q :action ToggleBookmark<CR>
 nnoremap <Leader>Q :action ShowBookmarks<CR>
 
 " 注释与重命名
-nnoremap <Leader>r :action CommentByLineComment<CR>
-nnoremap <Leader>re :action RenameElement<CR>
+" nnoremap <Leader>r :action CommentByLineComment<CR>
+nnoremap <Leader>r :action RenameElement<CR>
 
 " 跳转到定位
 nnoremap <M-b> :action GotoDeclaration<CR>
