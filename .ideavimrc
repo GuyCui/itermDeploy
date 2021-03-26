@@ -53,6 +53,9 @@ set noback
 " 搜索时，高亮显示匹配结果
 " set hlsearch
 
+" 设置缓冲区
+set hidden
+
 " 通过使用: commands命令，告诉我们文件的哪一行被改变过
 set report=0
 
@@ -260,7 +263,8 @@ nnoremap <Leader>fd :action ShowFilePath<CR>
 nnoremap <Leader>b :action ToggleLineBreakpoint<CR>
 
 " Ace jump
-nnoremap <Leader>f :action AceAction<CR>
+nnoremap <Leader>ff :action AceAction<CR>
+nnoremap <Leader>fr :action AceTargetAction<CR>
 
 " 选择打开的文件
 nnoremap <Leader>\ :action SelectInProjectView<CR>
