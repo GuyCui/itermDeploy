@@ -269,6 +269,8 @@ nnoremap <Leader>fr :action AceTargetAction<CR>
 " 选择打开的文件
 nnoremap <Leader>\ :action SelectInProjectView<CR>
 
+nnoremap <Leader>kk :action ActivateProjectToolWindow<CR>
+
 " 显示隐藏 Todo List
 nnoremap <Leader>A :action ActivateTODOToolWindow<CR>
 
