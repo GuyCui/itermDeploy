@@ -167,18 +167,18 @@ noremap L $
 noremap H ^
 
 " 设置 x c d action 的寄存器不与系统进行交互
-" nnoremap x "xx
-" xnoremap x "xx
-" nnoremap X "xX
-" xnoremap X "xX
-" nnoremap c "cc
-" xnoremap c "cc
-" nnoremap C "cC
-" xnoremap C "cC
-" nnoremap d "dd
-" vnoremap d "dd
-" vnoremap D "dD
-" nnoremap D "dD
+nnoremap x "xx
+xnoremap x "xx
+nnoremap X "xX
+xnoremap X "xX
+nnoremap c "cc
+xnoremap c "cc
+nnoremap C "cC
+xnoremap C "cC
+nnoremap d "dd
+vnoremap d "dd
+vnoremap D "dD
+nnoremap D "dD
 
 " 移动时 自动定位到屏幕中心
 noremap j jzz
