@@ -165,6 +165,8 @@ vnoremap <Leader>tl y<CR>:action ActivateTerminalToolWindow<CR>
 
 " 查看使用帮助
 " nnoremap m :actionlist<CR>
+" 复制路径
+nnoremap <Leader>cc :action CopyReferencePopupGroup<CR>
 
 " 上一个页签
 nnoremap <Leader>u :action PreviousTab<CR>
