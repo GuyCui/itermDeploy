@@ -301,16 +301,13 @@ nnoremap <Leader>tl Vy<CR>:action ActivateTerminalToolWindow<CR>
 vnoremap <Leader>tl y<CR>:action ActivateTerminalToolWindow<CR>
 
 " 查看使用帮助
-nnoremap m :actionlist<CR>
+" nnoremap m :actionlist<CR>
 
 " 上一个页签
 nnoremap <Leader>u :action PreviousTab<CR>
 
 " 下一页签
 nnoremap <Leader>d :action NextTab<CR>
-
-" 应用建议
-nnoremap <Leader>s :action ShowIntentionActions<CR>
 
 " 数字加减
 nnoremap <Leader>- <C-x>
