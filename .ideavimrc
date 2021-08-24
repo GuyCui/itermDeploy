@@ -1,3 +1,6 @@
+" nnoremap <SPACE> <Nop>
+" let mapleader="\<Space>"
+
 "语法高亮
 syntax on
 "显示行号
@@ -10,7 +13,7 @@ set tabstop=4
 set softtabstop=4
 set expandtab                  "将tab替换为相应数量空格
 set smartindent
-set backspace=2
+" set backspace=2
 set co=5
 "设置取消备份 禁止临时文件生成
 set nobackup
@@ -18,20 +21,37 @@ set noswapfile
 " 为IdeaVim插件增加自动切换为英文输入法的功能,
 " idea 需要安装 IdeaVimExtension plugin
 set keep-english-in-normal
+" set keep-english-in-normal-and-restore-in-insert
 "设置匹配模式 类似当输入一个左括号时会匹配相应的那个右括号
 set showmatch
 set clipboard^=unnamed,unnamedplus
-"set laststatus=2   "命令行为两行
-"set fenc=utf-8     "文件编码
-"set mouse=a        "启用鼠标
-"set ignorecase     "忽略大小写
+set laststatus=2   "命令行为两行
+set fenc=utf-8     "文件编码
+set mouse=a        "启用鼠标
+set ignorecase     "忽略大小写
+set smartcase
 set cursorline     "突出显示当前行
 "set cursorcolumn   "突出显示当前列
 set fdm=marker
+" 通过使用: commands命令，告诉我们文件的哪一行被改变过
+set report=0
+" 允许退格键在以下场景下正常执行
+set backspace=indent,eol,start
+" 出错时，不要发出响声
+set noerrorbells
+" 在被分割的窗口间显示空白，便于阅读
+set fillchars=vert:\ ,stl:\ ,stlnc:\
+
+" 输入搜索模式时，每输入一个字符，就自动跳到第一个匹配的结果
+set incsearch
 
 
 "jk退出insert模式
 inoremap jk <ESC>
+
+" ==================================================
+" Leader 键篇
+" ==================================================
 
 let mapleader = '\<space>'
 "Idea action 配置
@@ -43,3 +63,130 @@ nnoremap <Leader>rv :action IntroduceVariable<CR>
 nnoremap <Leader>cr :action CopyReference<CR>
 nnoremap <Leader>em :action ExtractMethod<CR>
 nnoremap <Leader>sw :action SurroundWith<CR>
+
+" 多窗口操作
+" 清除窗口
+nnoremap <Leader>wq <C-W>c
+" 光标窗口切换
+nnoremap <Leader>ww <C-W>w
+nnoremap <Leader>wj <C-W>j
+nnoremap <Leader>wk <C-W>k
+nnoremap <Leader>wh <C-W>h
+nnoremap <Leader>wl <C-W>l
+" 纵向新增窗口
+nnoremap <Leader>ws <C-W>s
+" 横向新增窗口
+nnoremap <Leader>we <C-W>v
+
+" v 列选择
+nnoremap <Leader>v <C-V>
+
+" hl 前进后退
+nnoremap <Leader>h :action Back<CR>
+nnoremap <Leader>l :action Forward<CR>
+
+" jk 错误定位
+nnoremap <Leader>k :action GotoPreviousError<CR>
+nnoremap <Leader>j :action GotoNextError<CR>
+
+" 最近文件, 最近位置 列表显示
+nnoremap <Leader>rf :action RecentFiles<CR>
+nnoremap <Leader>E :action RecentLocations<CR>
+
+" 书签操作
+nnoremap <Leader>q :action ToggleBookmark<CR>
+nnoremap <Leader>Q :action ShowBookmarks<CR>
+
+" 注释与重命名
+" nnoremap <Leader>r :action CommentByLineComment<CR>
+nnoremap <Leader>r :action RenameElement<CR>
+
+" 跳转到定位
+nnoremap <M-b> :action GotoDeclaration<CR>
+
+" 查看使用案例
+nnoremap <Leader>D :action FindUsages<CR>
+
+" 展示错误信息
+nnoremap <Leader>a :action ShowErrorDescription<CR>
+
+" 展示文件内的大纲
+nnoremap <Leader>o :action FileStructurePopup<CR>
+
+" 使用 ESLint 格式化代码
+nnoremap <Leader>T :action Javascript.Linters.EsLint.Fix<CR>
+
+" 格式化代码
+nnoremap <Leader>tr :action ReformatCode<CR>
+
+" 展示文件路径 可以快速打 Finder 中打开
+nnoremap <Leader>fd :action ShowFilePath<CR>
+
+" 切换断点
+nnoremap <Leader>b :action ToggleLineBreakpoint<CR>
+
+" Ace jump
+nnoremap <Leader>ff :action AceAction<CR>
+nnoremap <Leader>fr :action AceTargetAction<CR>
+
+" 选择打开的文件
+nnoremap <Leader>\ :action SelectInProjectView<CR>
+
+nnoremap <Leader>kk :action ActivateProjectToolWindow<CR>
+
+" 显示隐藏 Todo List
+nnoremap <Leader>A :action ActivateTODOToolWindow<CR>
+
+" 显示隐藏 Git Commit
+nnoremap <Leader>gc :action ActivateCommitToolWindow<CR>
+
+" 隐藏激活面板
+nnoremap <Leader>z :action HideActiveWindow<CR>
+
+" 打开idea的文件窗
+nnoremap <Leader>or :action FileMenu<CR>
+
+" 引入常量
+nnoremap <Leader>ic :action IntroduceConstant<CR>
+
+" 引入变量
+nnoremap <Leader>iv :action IntroduceVariable<CR>
+
+" 环绕代码片段
+nnoremap <Leader>sw :action SurroundWith<CR>
+
+" 提取方法
+nnoremap <Leader>ef :action ExtractMethod<CR>
+vnoremap <Leader>ef :action ExtractFunction<CR>
+
+" 打开Terminal工具视图
+nnoremap <Leader>tl Vy<CR>:action ActivateTerminalToolWindow<CR>
+vnoremap <Leader>tl y<CR>:action ActivateTerminalToolWindow<CR>
+
+" 查看使用帮助
+nnoremap m :actionlist<CR>
+
+" 上一个页签
+nnoremap <Leader>u :action PreviousTab<CR>
+
+" 下一页签
+nnoremap <Leader>d :action NextTab<CR>
+
+" 应用建议
+nnoremap <Leader>s :action ShowIntentionActions<CR>
+
+" 数字加减
+nnoremap <Leader>- <C-x>
+nnoremap <Leader>= <C-a>
+
+" 主题列表
+nnoremap <Leader>1 :action ChangeLaf<CR>
+
+" Reload .ideavimrc
+nnoremap <Leader>vs :source ~/.ideavimrc<CR>
+
+" 跳转到测试类(没有则自动建立)
+nnoremap <Leader>gt :action GotoTest<CR>
+
+" maven窗口
+nnoremap <Leader>mv :action ActivateMavenToolWindow<CR>
