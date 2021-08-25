@@ -57,6 +57,9 @@ set surround
 " {action}ae -> {action}entire-content
 set textobj-entire
 
+" 设置目录树
+set NERDTree
+
 " 为IdeaVim插件增加自动切换为英文输入法的功能,
 " idea 需要安装 IdeaVimExtension plugin
 set keep-english-in-normal
