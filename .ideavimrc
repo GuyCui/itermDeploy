@@ -18,6 +18,8 @@ set expandtab                  "将tab替换为相应数量空格
 set smartindent
 " set backspace=2
 set co=5
+set de=on
+set scrolloff=5
 "设置取消备份 禁止临时文件生成
 set nobackup
 set noswapfile
@@ -28,6 +30,7 @@ set laststatus=2   "命令行为两行
 set fenc=utf-8     "文件编码
 set mouse=a        "启用鼠标
 set ignorecase     "忽略大小写
+set showmode
 set smartcase
 set cursorline     "突出显示当前行
 "set cursorcolumn   "突出显示当前列
@@ -40,7 +43,7 @@ set backspace=indent,eol,start
 set noerrorbells
 " 在被分割的窗口间显示空白，便于阅读
 set fillchars=vert:\ ,stl:\ ,stlnc:\
-
+set hlsearch
 " 输入搜索模式时，每输入一个字符，就自动跳到第一个匹配的结果
 set incsearch
 
@@ -54,11 +57,18 @@ inoremap jk <ESC>
 " {action}s{surround symbol} {target symbol}
 set surround
 
+set exchange
+
+set highlightedyank
+
 " {action}ae -> {action}entire-content
 set textobj-entire
 
 " 设置目录树
 set NERDTree
+" nerdtree
+map <leader>e :NERDTreeToggle<CR>
+nnoremap <leader>d :NERDTreeFocus<CR>
 
 " 为IdeaVim插件增加自动切换为英文输入法的功能,
 " idea 需要安装 IdeaVimExtension plugin
@@ -91,6 +101,16 @@ set commentary
 " ==================================================
 
 "Idea action 配置
+
+set ideajoin
+set idearefactormode=keep
+
+" clear the highlighted search result
+nnoremap <Leader>sc :nohlsearch<CR>
+
+" easymotion
+map <leader>f <Plug>(easymotion-s)
+
 " 重命令元素
 nnoremap <Leader>re :action RenameElement<CR>
 nnoremap <Leader>gi :action GotoImplementation<CR>
@@ -99,6 +119,14 @@ nnoremap <Leader>rv :action IntroduceVariable<CR>
 nnoremap <Leader>cr :action CopyReference<CR>
 nnoremap <Leader>em :action ExtractMethod<CR>
 nnoremap <Leader>sw :action SurroundWith<CR>
+
+" Tab operation
+nnoremap tn gt
+nnoremap tp gT
+
+" Quit normal mode
+nnoremap <Space>q  :action CloseProject<CR>
+nnoremap <Space>Q  :qa!<CR>
 
 " 多窗口操作
 " 清除窗口
@@ -217,11 +245,53 @@ nnoremap <Leader>= <C-a>
 " 主题列表
 nnoremap <Leader>1 :action ChangeLaf<CR>
 
-" Reload .ideavimrc
-nnoremap <Leader>vs :source ~/.ideavimrc<CR>
+" edit vimrc
+nnoremap <leader>ve :e ~/.ideavimrc<CR>
+nnoremap <leader>vw :w!<CR>
+nnoremap <leader>vs :source ~/.ideavimrc<CR>
 
 " 跳转到测试类(没有则自动建立)
 nnoremap <Leader>gt :action GotoTest<CR>
 
 " maven窗口
 nnoremap <Leader>mv :action ActivateMavenToolWindow<CR>
+
+
+" intellij built in key map
+
+nnoremap <leader>a :action GotoAction<CR>
+nnoremap <leader>b :action Bookmarks<CR>
+nnoremap <leader>c :action GotoClass<CR>
+"nnoremap <leader>e :action SearchEverywhere<CR>
+"nnoremap <leader>f :action FindInPath<CR>
+nnoremap <leader>gc :action Git.CompareWithBranch<CR>
+nnoremap <leader>ga :action Annotate<CR>
+nnoremap <leader>gh :action Vcs.ShowTabbedFileHistory<CR>
+nnoremap <leader>r :action RecentFiles<CR>
+nnoremap <leader>s :action SelectInProjectView<CR>
+"toggle something
+"toggle track vim action Id
+nnoremap ta :action VimFindActionIdAction<CR>
+
+" run and debug
+nnoremap ,d :action Debug<CR>
+nnoremap ,r :action Run<CR>
+nnoremap ,c :action CompileDirty<CR>
+nnoremap ,b :action ToggleLineBreakpoint<CR>
+nnoremap ,v :action ViewBreakpoints<CR>
+nnoremap ,s :action Stop<CR>
+" navigation
+nnoremap gs :action GotoSuperMethod<CR>
+nnoremap gb :action JumpToLastChange<CR>
+nnoremap gi :action GotoImplementation<CR>
+nnoremap gd :action GotoDeclaration<CR>
+nnoremap gf :action FileStructurePopup<CR>
+
+" code actions
+nnoremap U :action FindUsages<CR>
+nnoremap R :action RenameElement<CR>
+nnoremap == :action ReformatCode<CR>
+vnoremap = :action ReformatCode<CR>
+nnoremap -- :action OptimizeImports<CR>
+nnoremap cc :action CommentByLineComment<CR>
+vnoremap cc :action CommentByLineComment<CR>
