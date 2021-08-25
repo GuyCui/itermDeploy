@@ -18,10 +18,6 @@ set co=5
 "设置取消备份 禁止临时文件生成
 set nobackup
 set noswapfile
-" 为IdeaVim插件增加自动切换为英文输入法的功能,
-" idea 需要安装 IdeaVimExtension plugin
-set keep-english-in-normal
-" set keep-english-in-normal-and-restore-in-insert
 "设置匹配模式 类似当输入一个左括号时会匹配相应的那个右括号
 set showmatch
 set clipboard^=unnamed,unnamedplus
@@ -48,6 +44,24 @@ set incsearch
 
 "jk退出insert模式
 inoremap jk <ESC>
+
+" ==================================================
+" 插件篇
+" ==================================================
+" {action}s{surround symbol} {target symbol}
+set surround
+
+" {action}ae -> {action}entire-content
+set textobj-entire
+
+" 为IdeaVim插件增加自动切换为英文输入法的功能,
+" idea 需要安装 IdeaVimExtension plugin
+set keep-english-in-normal
+" set keep-english-in-normal-and-restore-in-insert
+
+" argtextobj插件
+set argtextobj
+
 
 " ==================================================
 " Leader 键篇
