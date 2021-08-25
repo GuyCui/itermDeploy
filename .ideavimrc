@@ -103,20 +103,16 @@ set commentary
 "Idea action 配置
 
 set ideajoin
-" 不想在重构期间更改模式
-" set idearefactormode=keep
-" 重构时使用可视化模式
-set idearefactormode=visual
+set idearefactormode=keep
 
 " clear the highlighted search result
 nnoremap <Leader>sc :nohlsearch<CR>
 
 " easymotion
-map <leader>f <Plug>(easymotion-s)
+nmap <leader>f <Plug>(easymotion-s)
 
 " 重命令元素
-nnoremap <Leader>re :action RenameElement<CR>
-nnoremap <Leader>gi :action GotoImplementation<CR>
+" nnoremap <Leader>re :action RenameElement<CR>
 nnoremap <Leader>im :action ImplementMethods<CR>
 nnoremap <Leader>rv :action IntroduceVariable<CR>
 nnoremap <Leader>cr :action CopyReference<CR>
@@ -168,29 +164,21 @@ nnoremap <Leader>Q :action ShowBookmarks<CR>
 " nnoremap <Leader>r :action CommentByLineComment<CR>
 nnoremap <Leader>r :action RenameElement<CR>
 
-" 跳转到定位
-nnoremap <M-b> :action GotoDeclaration<CR>
-
 " 查看使用案例
 nnoremap <Leader>D :action FindUsages<CR>
 
 " 展示错误信息
 nnoremap <Leader>a :action ShowErrorDescription<CR>
 
-" 展示文件内的大纲
-nnoremap <Leader>o :action FileStructurePopup<CR>
 
 " 使用 ESLint 格式化代码
 nnoremap <Leader>T :action Javascript.Linters.EsLint.Fix<CR>
 
 " 格式化代码
-nnoremap <Leader>tr :action ReformatCode<CR>
+" nnoremap <Leader>tr :action ReformatCode<CR>
 
 " 展示文件路径 可以快速打 Finder 中打开
 nnoremap <Leader>fd :action ShowFilePath<CR>
-
-" 切换断点
-nnoremap <Leader>b :action ToggleLineBreakpoint<CR>
 
 " Ace jump
 nnoremap <Leader>ff :action AceAction<CR>
@@ -261,40 +249,54 @@ nnoremap <Leader>mv :action ActivateMavenToolWindow<CR>
 
 
 " intellij built in key map
-
+" 转到操作
 nnoremap <leader>a :action GotoAction<CR>
-nnoremap <leader>b :action Bookmarks<CR>
-nnoremap <leader>c :action GotoClass<CR>
-"nnoremap <leader>e :action SearchEverywhere<CR>
-"nnoremap <leader>f :action FindInPath<CR>
+" 转到类
+nnoremap <leader>tc :action GotoClass<CR>
+"nnoremap <leader>se :action SearchEverywhere<CR>
+"nnoremap <leader>fp :action FindInPath<CR>
+" 比较git分支
 nnoremap <leader>gc :action Git.CompareWithBranch<CR>
+" git注释
 nnoremap <leader>ga :action Annotate<CR>
+" 显示git历史记录
 nnoremap <leader>gh :action Vcs.ShowTabbedFileHistory<CR>
-nnoremap <leader>r :action RecentFiles<CR>
-nnoremap <leader>s :action SelectInProjectView<CR>
 "toggle something
 "toggle track vim action Id
 nnoremap ta :action VimFindActionIdAction<CR>
 
 " run and debug
 nnoremap ,d :action Debug<CR>
+" 运行
 nnoremap ,r :action Run<CR>
+" 编译
 nnoremap ,c :action CompileDirty<CR>
+" 切换断点
 nnoremap ,b :action ToggleLineBreakpoint<CR>
+" 查看断点
 nnoremap ,v :action ViewBreakpoints<CR>
+" 停止
 nnoremap ,s :action Stop<CR>
 " navigation
+" 转到父类方法
 nnoremap gs :action GotoSuperMethod<CR>
+" 跳到最后一次更改
 nnoremap gb :action JumpToLastChange<CR>
+" 转到实现
 nnoremap gi :action GotoImplementation<CR>
-nnoremap gd :action GotoDeclaration<CR>
+" 跳转到定位
+nnoremap <M-b> :action GotoDeclaration<CR>
+" 展示文件内的大纲
 nnoremap gf :action FileStructurePopup<CR>
 
 " code actions
-nnoremap U :action FindUsages<CR>
-nnoremap R :action RenameElement<CR>
+" nnoremap U :action FindUsages<CR>
+" nnoremap R :action RenameElement<CR>
+" 格式化代码
 nnoremap == :action ReformatCode<CR>
 vnoremap = :action ReformatCode<CR>
+" 优化导入
 nnoremap -- :action OptimizeImports<CR>
-nnoremap cc :action CommentByLineComment<CR>
-vnoremap cc :action CommentByLineComment<CR>
+" 按行注释
+" nnoremap cc :action CommentByLineComment<CR>
+" vnoremap cc :action CommentByLineComment<CR>
