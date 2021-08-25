@@ -48,6 +48,7 @@ inoremap jk <ESC>
 " ==================================================
 " 插件篇
 " ==================================================
+
 " {action}s{surround symbol} {target symbol}
 set surround
 
@@ -62,6 +63,14 @@ set keep-english-in-normal
 " argtextobj插件
 set argtextobj
 
+" EasyMotion依赖于IdeaVim-EasyMotion 和 AceJump 两个插件
+set easymotion
+
+" multiple-cursors
+set multiple-cursors
+
+" 注释插件模拟
+set commentary
 
 " ==================================================
 " Leader 键篇
