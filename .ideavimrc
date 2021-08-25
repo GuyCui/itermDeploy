@@ -10,21 +10,30 @@ syntax on
 set number relativenumber
 "显示光标所在位置的行号和列号
 set ruler
+" 命令模式下，在底部显示，当前键入的指令
+set showcmd
 set wrap                      "自动折行
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4
-set expandtab                  "将tab替换为相应数量空格
+" set expandtab                  "将tab替换为相应数量空格
 set smartindent
 " set backspace=2
 set co=5
 set de=on
+" 垂直滚动时，光标距离顶部/底部的位置（单位：行）
 set scrolloff=5
+
+" 水平滚动时，光标距离行首或行尾的位置（单位：字符）。该配置在不折行时比较有用
+set sidescrolloff=15
+
 "设置取消备份 禁止临时文件生成
 set nobackup
 set noswapfile
 "设置匹配模式 类似当输入一个左括号时会匹配相应的那个右括号
 set showmatch
+" 按下回车键后，下一行的缩进会自动跟上一行的缩进保持一致
+set autoindent
 set clipboard^=unnamed,unnamedplus
 set laststatus=2   "命令行为两行
 set fenc=utf-8     "文件编码
@@ -112,13 +121,23 @@ nnoremap <Leader>sc :nohlsearch<CR>
 " easymotion
 nmap <leader>f <Plug>(easymotion-s)
 
-" 重命令元素
+" 重命名元素
 " nnoremap <Leader>re :action RenameElement<CR>
+" 实现方法
 nnoremap <Leader>im :action ImplementMethods<CR>
+" 引入变量
 nnoremap <Leader>rv :action IntroduceVariable<CR>
+" 复制路径
 nnoremap <Leader>cr :action CopyReference<CR>
+" 提取方法
 nnoremap <Leader>em :action ExtractMethod<CR>
+" 环绕
 nnoremap <Leader>sw :action SurroundWith<CR>
+" L 移动到行尾
+noremap L $
+
+" H 移动到行首
+noremap H ^
 
 " Tab operation
 nnoremap tn gt
