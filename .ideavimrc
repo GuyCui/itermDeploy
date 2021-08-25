@@ -103,7 +103,10 @@ set commentary
 "Idea action 配置
 
 set ideajoin
-set idearefactormode=keep
+" 不想在重构期间更改模式
+" set idearefactormode=keep
+" 重构时使用可视化模式
+set idearefactormode=visual
 
 " clear the highlighted search result
 nnoremap <Leader>sc :nohlsearch<CR>
