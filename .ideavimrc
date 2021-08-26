@@ -5,7 +5,7 @@ let mapleader = '\<space>'
 let g:EasyMotion_override_acejump = 0
 
 "语法高亮
-syntax on
+set syntax on
 "显示行号
 set number relativenumber
 "显示光标所在位置的行号和列号
@@ -77,8 +77,8 @@ set textobj-entire
 " 设置目录树
 set NERDTree
 " nerdtree
-map <leader>e :NERDTreeToggle<CR>
-nnoremap <leader>d :NERDTreeFocus<CR>
+map <Leader>e :NERDTreeToggle<CR>
+nnoremap <Leader>d :NERDTreeFocus<CR>
 
 " 为IdeaVim插件增加自动切换为英文输入法的功能,
 " idea 需要安装 IdeaVimExtension plugin
@@ -120,20 +120,14 @@ set idearefactormode=keep
 nnoremap <Leader>sc :nohlsearch<CR>
 
 " easymotion
-nmap <leader>f <Plug>(easymotion-s)
+nmap <Leader>f <Plug>(easymotion-s)
 
 " 重命名元素
-" nnoremap <Leader>re :action RenameElement<CR>
+nnoremap <Leader>re :action RenameElement<CR>
 " 实现方法
 nnoremap <Leader>im :action ImplementMethods<CR>
-" 引入变量
-nnoremap <Leader>rv :action IntroduceVariable<CR>
 " 复制路径
 nnoremap <Leader>cr :action CopyReference<CR>
-" 提取方法
-nnoremap <Leader>em :action ExtractMethod<CR>
-" 环绕
-nnoremap <Leader>sw :action SurroundWith<CR>
 
 " basic key mapping
 " L 移动到行尾
@@ -147,8 +141,8 @@ nnoremap ; :
 nnoremap ` ,
 
 " Tab operation
-nnoremap tn gt
-nnoremap tp gT
+" nnoremap tn gt
+" nnoremap tp gT
 
 " Quit normal mode
 nnoremap <Space>q  :action CloseProject<CR>
@@ -187,28 +181,19 @@ nnoremap <Leader>E :action RecentLocations<CR>
 nnoremap <Leader>q :action ToggleBookmark<CR>
 nnoremap <Leader>Q :action ShowBookmarks<CR>
 
-" 注释与重命名
-" nnoremap <Leader>r :action CommentByLineComment<CR>
-nnoremap <Leader>r :action RenameElement<CR>
-
 " 查看使用案例
 nnoremap <Leader>D :action FindUsages<CR>
 
 " 展示错误信息
 nnoremap <Leader>a :action ShowErrorDescription<CR>
 
-
 " 使用 ESLint 格式化代码
 nnoremap <Leader>T :action Javascript.Linters.EsLint.Fix<CR>
-
-" 格式化代码
-" nnoremap <Leader>tr :action ReformatCode<CR>
 
 " 展示文件路径 可以快速打 Finder 中打开
 nnoremap <Leader>fd :action ShowFilePath<CR>
 
 " Ace jump
-nnoremap <Leader>ff :action AceAction<CR>
 nnoremap <Leader>fr :action AceTargetAction<CR>
 
 " 选择打开的文件
@@ -283,7 +268,7 @@ nnoremap <leader>tc :action GotoClass<CR>
 "nnoremap <leader>se :action SearchEverywhere<CR>
 "nnoremap <leader>fp :action FindInPath<CR>
 " 比较git分支
-nnoremap <leader>gc :action Git.CompareWithBranch<CR>
+nnoremap <leader>gcw :action Git.CompareWithBranch<CR>
 " git注释
 nnoremap <leader>ga :action Annotate<CR>
 " 显示git历史记录
@@ -316,9 +301,6 @@ nnoremap <M-b> :action GotoDeclaration<CR>
 " 展示文件内的大纲
 nnoremap gf :action FileStructurePopup<CR>
 
-" code actions
-" nnoremap U :action FindUsages<CR>
-" nnoremap R :action RenameElement<CR>
 " 格式化代码
 nnoremap == :action ReformatCode<CR>
 vnoremap = :action ReformatCode<CR>
