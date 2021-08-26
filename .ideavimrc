@@ -12,7 +12,8 @@ set number relativenumber
 set ruler
 " 命令模式下，在底部显示，当前键入的指令
 set showcmd
-set wrap                      "自动折行
+ "自动折行
+set wrap
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4
@@ -82,8 +83,8 @@ nnoremap <leader>d :NERDTreeFocus<CR>
 " 为IdeaVim插件增加自动切换为英文输入法的功能,
 " idea 需要安装 IdeaVimExtension plugin
 " set keep-english-in-normal
-nokeep-english-in-normal-and-restore-in-insert
-" set keep-english-in-normal-and-restore-in-insert
+" nokeep-english-in-normal-and-restore-in-insert
+set keep-english-in-normal-and-restore-in-insert
 
 " argtextobj插件
 set argtextobj
@@ -133,11 +134,17 @@ nnoremap <Leader>cr :action CopyReference<CR>
 nnoremap <Leader>em :action ExtractMethod<CR>
 " 环绕
 nnoremap <Leader>sw :action SurroundWith<CR>
-" L 移动到行尾
-noremap L $
 
+" basic key mapping
+" L 移动到行尾
+nnoremap L $
+vnoremap L $
 " H 移动到行首
-noremap H ^
+vnoremap H ^
+nnoremap H ^
+
+nnoremap ; :
+nnoremap ` ,
 
 " Tab operation
 nnoremap tn gt
