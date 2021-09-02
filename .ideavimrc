@@ -196,6 +196,8 @@ nnoremap <Leader>fd :action ShowFilePath<CR>
 " Ace jump
 nnoremap <Leader>fr :action AceTargetAction<CR>
 
+nnoremap <Leader>ad :action NewClass<CR>
+
 " 选择打开的文件
 nnoremap <Leader>\ :action SelectInProjectView<CR>
 
