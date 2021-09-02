@@ -269,6 +269,8 @@ nnoremap <leader>tc :action GotoClass<CR>
 "nnoremap <leader>fp :action FindInPath<CR>
 " 比较git分支
 nnoremap <leader>gw :action Git.CompareWithBranch<CR>
+" 查看git分支
+nnoremap <leader>gb :action Git.Branches<CR>
 " git注释
 nnoremap <leader>ga :action Annotate<CR>
 " 显示git历史记录
