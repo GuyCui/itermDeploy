@@ -3,7 +3,7 @@
 
 let mapleader = '\<space>'
 let g:EasyMotion_override_acejump = 0
-
+let g:EasyMotion_startofline = 0
 "Turn on case insensitive feature
 let g:EasyMotion_smartcase = 1
 "Use upper target 标签 and 请键入 as a lower case
@@ -141,6 +141,12 @@ omap f <Plug>(easymotion-s2)
 nmap F <Plug>(easymotion-bd-w)
 xmap F <Plug>(easymotion-bd-w)
 omap F <Plug>(easymotion-bd-w)
+
+nmap l <Plug>(easymotion-lineforward)
+nmap j <Plug>(easymotion-j)
+nmap k <Plug>(easymotion-k)
+nmap h <Plug>(easymotion-linebackward)
+
 " move to line
 " nmap gl <Plug>(easymotion-bd-jk)
 " xmap gl <Plug>(easymotion-bd-jk)
