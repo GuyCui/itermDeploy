@@ -4,6 +4,12 @@
 let mapleader = '\<space>'
 let g:EasyMotion_override_acejump = 0
 
+"Turn on case insensitive feature
+let g:EasyMotion_smartcase = 1
+"Use upper target 标签 and 请键入 as a lower case
+let g:EasyMotion_use_upper = 0
+
+
 "语法高亮
 set syntax on
 "显示行号
@@ -12,6 +18,11 @@ set number relativenumber
 set ruler
 " 命令模式下，在底部显示，当前键入的指令
 set showcmd
+" 基于缩进或语法进行代码折叠
+set foldmethod=indent
+set foldmethod=syntax
+" 启动 vim 时关闭折叠代码
+set nofoldenable
  "自动折行
 set wrap
 set shiftwidth=4
@@ -40,6 +51,7 @@ set laststatus=2   "命令行为两行
 set fenc=utf-8     "文件编码
 set mouse=a        "启用鼠标
 set ignorecase     "忽略大小写
+" 显示当前模式
 set showmode
 set smartcase
 set cursorline     "突出显示当前行
@@ -77,8 +89,8 @@ set textobj-entire
 " 设置目录树
 set NERDTree
 " nerdtree
-map <Leader>e :NERDTreeToggle<CR>
-nnoremap <Leader>d :NERDTreeFocus<CR>
+map <Leader>et :NERDTreeToggle<CR>
+nnoremap <Leader>dt :NERDTreeFocus<CR>
 
 " 为IdeaVim插件增加自动切换为英文输入法的功能,
 " idea 需要安装 IdeaVimExtension plugin
@@ -120,7 +132,24 @@ set idearefactormode=keep
 nnoremap <Leader>sc :nohlsearch<CR>
 
 " easymotion
-nmap <Leader>f <Plug>(easymotion-s)
+" nmap <Leader>f <Plug>(easymotion-s)
+" move to character
+nmap f <Plug>(easymotion-s2)
+xmap f <Plug>(easymotion-s2)
+omap f <Plug>(easymotion-s2)
+" move to word
+nmap F <Plug>(easymotion-bd-w)
+xmap F <Plug>(easymotion-bd-w)
+omap F <Plug>(easymotion-bd-w)
+" move to line
+" nmap gl <Plug>(easymotion-bd-jk)
+" xmap gl <Plug>(easymotion-bd-jk)
+" omap gl <Plug>(easymotion-bd-jk)
+" Press `f` to activate AceJump
+nnoremap f :<C-u>action AceAction<CR>
+" Press `F` to activate Target Mode
+" 在 Target 模式下会跳转到目标，并选中目标整个Word"
+nnoremap F :<C-u>action AceTargetAction<CR>
 
 " 重命名元素
 nnoremap <Leader>re :action RenameElement<CR>
@@ -140,9 +169,13 @@ nnoremap H ^
 nnoremap ; :
 nnoremap ` ,
 
-" Tab operation
-" nnoremap tn gt
-" nnoremap tp gT
+" Redo
+nnoremap U <C-r>
+
+" 显示 information
+nnoremap <C-I> :<C-u>action QuickJavaDoc<CR>
+
+
 
 " Quit normal mode
 nnoremap <Space>q  :action CloseProject<CR>
@@ -180,6 +213,9 @@ nnoremap <Leader>E :action RecentLocations<CR>
 " 书签操作
 nnoremap <Leader>q :action ToggleBookmark<CR>
 nnoremap <Leader>Q :action ShowBookmarks<CR>
+nnoremap m :action ToggleBookmarkWithMnemonic<CR>
+nnoremap ` :action ShowBookmarks<CR>
+
 
 " 查看使用案例
 nnoremap <Leader>D :action FindUsages<CR>
@@ -238,10 +274,10 @@ vnoremap <Leader>tl y<CR>:action ActivateTerminalToolWindow<CR>
 nnoremap <Leader>cc :action CopyReferencePopupGroup<CR>
 
 " 上一个页签
-nnoremap <Leader>u :action PreviousTab<CR>
+nnoremap tn gt
 
 " 下一页签
-nnoremap <Leader>d :action NextTab<CR>
+nnoremap tp gT
 
 " 数字加减
 nnoremap <Leader>- <C-x>
@@ -283,6 +319,7 @@ nnoremap ta :action VimFindActionIdAction<CR>
 
 " run and debug
 nnoremap ,d :action Debug<CR>
+nnoremap D :<C-u>action ChooseRunConfiguration<CR>
 " 运行
 nnoremap ,r :action Run<CR>
 " 编译
@@ -313,3 +350,6 @@ nnoremap -- :action OptimizeImports<CR>
 " 按行注释
 " nnoremap cc :action CommentByLineComment<CR>
 " vnoremap cc :action CommentByLineComment<CR>
+" window
+nnoremap s; :<C-u>action CloseActiveTab<CR>
+nnoremap so :<C-u>action MoveEditorToOppositeTabGroup<CR>
