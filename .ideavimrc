@@ -148,8 +148,7 @@ omap F <Plug>(easymotion-bd-w)
 " Press `f` to activate AceJump
 nnoremap f :<C-u>action AceAction<CR>
 " Press `F` to activate Target Mode
-" 在 Target 模式下会跳转到目标，并选中目标整个Word"
-nnoremap F :<C-u>action AceTargetAction<CR>
+
 
 " 重命名元素
 nnoremap <Leader>re :action RenameElement<CR>
@@ -230,7 +229,8 @@ nnoremap <Leader>T :action Javascript.Linters.EsLint.Fix<CR>
 nnoremap <Leader>fd :action ShowFilePath<CR>
 
 " Ace jump
-nnoremap <Leader>fr :action AceTargetAction<CR>
+" 在 Target 模式下会跳转到目标，并选中目标整个Word"
+nnoremap F :<C-u>action AceTargetAction<CR>
 
 nnoremap <Leader>ad :action NewClass<CR>
 
