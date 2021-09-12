@@ -155,21 +155,19 @@ nmap F <Plug>(easymotion-bd-w)
 xmap F <Plug>(easymotion-bd-w)
 omap F <Plug>(easymotion-bd-w)
 
-nmap l <Plug>(easymotion-lineforward)
-xmap l <Plug>(easymotion-lineforward)
-omap l <Plug>(easymotion-lineforward)
-
-nmap j <Plug>(easymotion-j)
-omap j <Plug>(easymotion-j)
-xmap j <Plug>(easymotion-j)
-
-nmap k <Plug>(easymotion-k)
-xmap k <Plug>(easymotion-k)
-omap k <Plug>(easymotion-k)
-
-nmap h <Plug>(easymotion-linebackward)
-xmap h <Plug>(easymotion-linebackward)
-omap h <Plug>(easymotion-linebackward)
+" j k 映射成 gj gk
+nnoremap k gk
+nnoremap j gj
+vnoremap j gj
+vnoremap k gk
+" L 移动到行尾
+nnoremap L g$
+vnoremap L g$
+" H 移动到行首
+vnoremap H g^
+nnoremap H g^
+vnoremap 0 g0
+nnoremap 0 g0
 
 " move to line
 " nmap gl <Plug>(easymotion-bd-jk)
@@ -210,9 +208,6 @@ nnoremap <Leader>im :action ImplementMethods<CR>
 nnoremap <Leader>cr :action CopyReference<CR>
 
 " basic key mapping
-" L 移动到行尾
-nnoremap L $
-vnoremap L $
 
 " 在插入模式下快速到行尾和行首
 inoremap <C-h> <Left>
@@ -221,10 +216,6 @@ inoremap <C-k> <Up>
 inoremap <C-l> <Right>
 inoremap <C-a> <Home>
 inoremap <C-e> <End>
-
-" H 移动到行首
-vnoremap H ^
-nnoremap H ^
 
 nnoremap ; :
 nnoremap ` ,
@@ -305,6 +296,8 @@ nnoremap F :<C-u>action AceTargetAction<CR>
 nnoremap <Leader>ad :action NewClass<CR>
 " 新建包
 nnoremap <Leader>nd :action NewDir<CR>
+" 清理缓存
+nnoremap <Leader>ci :action InvalidateCaches<CR>
 
 
 " 选择打开的文件
