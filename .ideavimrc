@@ -303,7 +303,7 @@ nnoremap <Leader>fd :action ShowFilePath<CR>
 nnoremap F :<C-u>action AceTargetAction<CR>
 
 nnoremap <Leader>ad :action NewClass<CR>
-
+" 新建包
 nnoremap <Leader>nd :action NewDir<CR>
 
 
