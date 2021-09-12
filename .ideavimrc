@@ -304,6 +304,9 @@ nnoremap F :<C-u>action AceTargetAction<CR>
 
 nnoremap <Leader>ad :action NewClass<CR>
 
+nnoremap <Leader>nd :action NewDir<CR>
+
+
 " 选择打开的文件
 nnoremap <Leader>\ :action SelectInProjectView<CR>
 
