@@ -42,6 +42,19 @@ set sidescrolloff=15
 "设置取消备份 禁止临时文件生成
 set nobackup
 set noswapfile
+" 不要使用vi的键盘模式，而是vim自己的
+set nocompatible
+” 下一行和上一行的格式相同
+set cindent
+" 设置在状态栏显示按键
+set showcmd
+” 总是显示状态栏
+set showtabline=2
+set laststatus=2
+" 设置vim操作的等待时间
+set ttimeout
+set ttimeoutlen=100
+set notimeout
 "设置匹配模式 类似当输入一个左括号时会匹配相应的那个右括号
 set showmatch
 " 按下回车键后，下一行的缩进会自动跟上一行的缩进保持一致
@@ -143,9 +156,20 @@ xmap F <Plug>(easymotion-bd-w)
 omap F <Plug>(easymotion-bd-w)
 
 nmap l <Plug>(easymotion-lineforward)
+xmap l <Plug>(easymotion-lineforward)
+omap l <Plug>(easymotion-lineforward)
+
 nmap j <Plug>(easymotion-j)
+omap j <Plug>(easymotion-j)
+xmap j <Plug>(easymotion-j)
+
 nmap k <Plug>(easymotion-k)
+xmap k <Plug>(easymotion-k)
+omap k <Plug>(easymotion-k)
+
 nmap h <Plug>(easymotion-linebackward)
+xmap h <Plug>(easymotion-linebackward)
+omap h <Plug>(easymotion-linebackward)
 
 " move to line
 " nmap gl <Plug>(easymotion-bd-jk)
@@ -155,9 +179,31 @@ nmap h <Plug>(easymotion-linebackward)
 nnoremap f :<C-u>action AceAction<CR>
 " Press `F` to activate Target Mode
 
+" 查找和替换
+noremap \s :%s//g<left><left>
+
+" 查找到的内容居中
+nnoremap <silent> n nzz
+nnoremap <silent> N Nzz
+nnoremap <silent> * *zz
+nnoremap <silent> # #zz
+nnoremap <silent> g* g*zz
+
+" 打开所有的折叠
+noremap zr zR
+
+" 关闭所有的折叠
+noremap zm zM
 
 " 重命名元素
 nnoremap <Leader>re :action RenameElement<CR>
+" 重命名文件
+nnoremap <Leader>rf :action RenameFile<CR>
+
+" 重构变量
+nnoremap <Leader>rp :action Replace<CR>
+nnoremap <leader>rpi :action ReplaceInPath<CR>
+
 " 实现方法
 nnoremap <Leader>im :action ImplementMethods<CR>
 " 复制路径
@@ -167,6 +213,15 @@ nnoremap <Leader>cr :action CopyReference<CR>
 " L 移动到行尾
 nnoremap L $
 vnoremap L $
+
+" 在插入模式下快速到行尾和行首
+inoremap <C-h> <Left>
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-l> <Right>
+inoremap <C-a> <Home>
+inoremap <C-e> <End>
+
 " H 移动到行首
 vnoremap H ^
 nnoremap H ^
@@ -200,6 +255,15 @@ nnoremap <Leader>ws <C-W>s
 " 横向新增窗口
 nnoremap <Leader>we <C-W>v
 
+" 在窗口间跳转
+noremap sj :set nosplitbelow<CR>:split<CR>:set splitbelow<CR>
+noremap sk :set splitbelow<CR>:split<CR>
+noremap sh :set nosplitright<CR>:vsplit<CR>:set splitright<CR>
+noremap sl :set splitright<CR>:vsplit<CR>
+
+" 关闭下方窗口
+noremap <LEADER>jq <C-w>j:q<CR>
+
 " v 列选择
 nnoremap <Leader>v <C-V>
 
@@ -212,7 +276,7 @@ nnoremap <Leader>k :action GotoPreviousError<CR>
 nnoremap <Leader>j :action GotoNextError<CR>
 
 " 最近文件, 最近位置 列表显示
-nnoremap <Leader>rf :action RecentFiles<CR>
+nnoremap <Leader>e :action RecentFiles<CR>
 nnoremap <Leader>E :action RecentLocations<CR>
 
 " 书签操作
@@ -347,7 +411,12 @@ nnoremap gi :action GotoImplementation<CR>
 nnoremap <M-b> :action GotoDeclaration<CR>
 " 展示文件内的大纲
 nnoremap gf :action FileStructurePopup<CR>
-
+" 主屏模式
+nnoremap <Leader>tfs :action ToggleFullScreen<CR>
+" 参数信息
+nnoremap <leader>p :action ParameterInfo<CR>
+" 打开ContextMenu
+nnoremap <Leader>pm :action ShowPopupMenu<CR>
 " 格式化代码
 nnoremap == :action ReformatCode<CR>
 vnoremap = :action ReformatCode<CR>
