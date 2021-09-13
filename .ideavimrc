@@ -102,8 +102,6 @@ set textobj-entire
 " 设置目录树
 set NERDTree
 " nerdtree
-map <Leader>et :NERDTreeToggle<CR>
-nnoremap <Leader>dt :NERDTreeFocus<CR>
 
 " 为IdeaVim插件增加自动切换为英文输入法的功能,
 " idea 需要安装 IdeaVimExtension plugin
