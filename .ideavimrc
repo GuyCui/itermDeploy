@@ -1,6 +1,3 @@
-" nnoremap <SPACE> <Nop>
-" let mapleader="\<Space>"
-
 let mapleader = '\<space>'
 let g:EasyMotion_override_acejump = 0
 let g:EasyMotion_startofline = 0
@@ -8,7 +5,6 @@ let g:EasyMotion_startofline = 0
 let g:EasyMotion_smartcase = 1
 "Use upper target 标签 and 请键入 as a lower case
 let g:EasyMotion_use_upper = 0
-
 
 "语法高亮
 set syntax on
@@ -28,7 +24,6 @@ set wrap
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4
-" set expandtab                  "将tab替换为相应数量空格
 set smartindent
 " set backspace=2
 set co=5
@@ -148,6 +143,7 @@ nnoremap <Leader>sc :nohlsearch<CR>
 nmap f <Plug>(easymotion-s2)
 xmap f <Plug>(easymotion-s2)
 omap f <Plug>(easymotion-s2)
+
 " move to word
 nmap F <Plug>(easymotion-bd-w)
 xmap F <Plug>(easymotion-bd-w)
@@ -158,22 +154,19 @@ nnoremap k gk
 nnoremap j gj
 vnoremap j gj
 vnoremap k gk
+
 " L 移动到行尾
 nnoremap L g$
 vnoremap L g$
+
 " H 移动到行首
 vnoremap H g^
 nnoremap H g^
 vnoremap 0 g0
 nnoremap 0 g0
 
-" move to line
-" nmap gl <Plug>(easymotion-bd-jk)
-" xmap gl <Plug>(easymotion-bd-jk)
-" omap gl <Plug>(easymotion-bd-jk)
 " Press `f` to activate AceJump
 nnoremap f :<C-u>action AceAction<CR>
-" Press `F` to activate Target Mode
 
 " 查找和替换
 noremap \s :%s//g<left><left>
@@ -233,22 +226,20 @@ nnoremap <Space>Q  :qa!<CR>
 " 多窗口操作
 " 清除窗口
 nnoremap <Leader>wq <C-W>c
+
 " 光标窗口切换
 nnoremap <Leader>ww <C-W>w
 nnoremap <Leader>wj <C-W>j
 nnoremap <Leader>wk <C-W>k
 nnoremap <Leader>wh <C-W>h
 nnoremap <Leader>wl <C-W>l
+
 " 纵向新增窗口
 nnoremap <Leader>ws <C-W>s
+
 " 横向新增窗口
 nnoremap <Leader>we <C-W>v
 
-" 在窗口间跳转
-noremap sj :set nosplitbelow<CR>:split<CR>:set splitbelow<CR>
-noremap sk :set splitbelow<CR>:split<CR>
-noremap sh :set nosplitright<CR>:vsplit<CR>:set splitright<CR>
-noremap sl :set splitright<CR>:vsplit<CR>
 
 " 关闭下方窗口
 noremap <LEADER>jq <C-w>j:q<CR>
@@ -274,15 +265,11 @@ nnoremap <Leader>Q :action ShowBookmarks<CR>
 nnoremap m :action ToggleBookmarkWithMnemonic<CR>
 nnoremap ` :action ShowBookmarks<CR>
 
-
 " 查看使用案例
 nnoremap <Leader>D :action FindUsages<CR>
 
 " 展示错误信息
 nnoremap <Leader>a :action ShowErrorDescription<CR>
-
-" 使用 ESLint 格式化代码
-nnoremap <Leader>T :action Javascript.Linters.EsLint.Fix<CR>
 
 " 展示文件路径 可以快速打 Finder 中打开
 nnoremap <Leader>fd :action ShowFilePath<CR>
@@ -297,11 +284,8 @@ nnoremap <Leader>nd :action NewDir<CR>
 " 清理缓存
 nnoremap <Leader>ci :action InvalidateCaches<CR>
 
-
 " 选择打开的文件
 nnoremap <Leader>\ :action SelectInProjectView<CR>
-
-nnoremap <Leader>kk :action ActivateProjectToolWindow<CR>
 
 " 显示隐藏 Todo List
 nnoremap <Leader>A :action ActivateTODOToolWindow<CR>
@@ -332,8 +316,6 @@ vnoremap <Leader>ef :action ExtractFunction<CR>
 nnoremap <Leader>tl Vy<CR>:action ActivateTerminalToolWindow<CR>
 vnoremap <Leader>tl y<CR>:action ActivateTerminalToolWindow<CR>
 
-" 查看使用帮助
-" nnoremap m :actionlist<CR>
 " 复制路径
 nnoremap <Leader>cc :action CopyReferencePopupGroup<CR>
 
@@ -361,64 +343,69 @@ nnoremap <Leader>gt :action GotoTest<CR>
 " maven窗口
 nnoremap <Leader>mv :action ActivateMavenToolWindow<CR>
 
-
 " intellij built in key map
-" 转到操作
-" nnoremap <leader>a :action GotoAction<CR>
-" 转到类
-nnoremap <leader>tc :action GotoClass<CR>
-"nnoremap <leader>se :action SearchEverywhere<CR>
-"nnoremap <leader>fp :action FindInPath<CR>
 " 比较git分支
 nnoremap <leader>gw :action Git.CompareWithBranch<CR>
+
 " 查看git分支
 nnoremap <leader>gb :action Git.Branches<CR>
+
 " git注释
 nnoremap <leader>ga :action Annotate<CR>
+
 " 显示git历史记录
 nnoremap <leader>gh :action Vcs.ShowTabbedFileHistory<CR>
-"toggle something
+
 "toggle track vim action Id
 nnoremap ta :action VimFindActionIdAction<CR>
 
 " run and debug
 nnoremap ,d :action Debug<CR>
-nnoremap D :<C-u>action ChooseRunConfiguration<CR>
+
 " 运行
 nnoremap ,r :action Run<CR>
+
 " 编译
 nnoremap ,c :action CompileDirty<CR>
+
 " 切换断点
 nnoremap ,b :action ToggleLineBreakpoint<CR>
+
 " 查看断点
 nnoremap ,v :action ViewBreakpoints<CR>
+
 " 停止
 nnoremap ,s :action Stop<CR>
+
 " navigation
 " 转到父类方法
 nnoremap gs :action GotoSuperMethod<CR>
+
 " 跳到最后一次更改
 nnoremap gb :action JumpToLastChange<CR>
+
 " 转到实现
 nnoremap gi :action GotoImplementation<CR>
+
 " 跳转到定位
 nnoremap <M-b> :action GotoDeclaration<CR>
+
 " 展示文件内的大纲
 nnoremap gf :action FileStructurePopup<CR>
+
 " 主屏模式
 nnoremap <Leader>tfs :action ToggleFullScreen<CR>
+
 " 参数信息
 nnoremap <leader>p :action ParameterInfo<CR>
+
 " 打开ContextMenu
 nnoremap <Leader>pm :action ShowPopupMenu<CR>
+vnoremap <Leader>pm :action ShowPopupMenu<CR>
+
 " 格式化代码
 nnoremap == :action ReformatCode<CR>
 vnoremap = :action ReformatCode<CR>
+
 " 优化导入
 nnoremap -- :action OptimizeImports<CR>
-" 按行注释
-" nnoremap cc :action CommentByLineComment<CR>
-" vnoremap cc :action CommentByLineComment<CR>
-" window
-nnoremap s; :<C-u>action CloseActiveTab<CR>
-nnoremap so :<C-u>action MoveEditorToOppositeTabGroup<CR>
