@@ -2,6 +2,7 @@ let mapleader = '\<space>'
 let g:EasyMotion_override_acejump = 0
 let g:EasyMotion_startofline = 0
 "Turn on case insensitive feature
+let keep_input_source_in_normal="com.apple.keylayout.ABC"
 let g:EasyMotion_smartcase = 1
 "Use upper target 标签 and 请键入 as a lower case
 let g:EasyMotion_use_upper = 0
@@ -100,10 +101,8 @@ set NERDTree
 
 " 为IdeaVim插件增加自动切换为英文输入法的功能,
 " idea 需要安装 IdeaVimExtension plugin
-" set keep-english-in-normal
-" nokeep-english-in-normal-and-restore-in-insert
-set keep-english-in-normal-and-restore-in-insert
-
+" set keep-english-in-normal-and-restore-in-insert
+set keep-english-in-normal[-and-restore-in-insert]
 " argtextobj插件
 set argtextobj
 
