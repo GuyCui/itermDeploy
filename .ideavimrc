@@ -117,6 +117,8 @@ set surround
 
 set exchange
 
+set sneak
+
 set highlightedyank
 
 " {action}ae -> {action}entire-content
@@ -129,7 +131,7 @@ set NERDTree
 " 为IdeaVim插件增加自动切换为英文输入法的功能,
 " idea 需要安装 IdeaVimExtension plugin
 " set keep-english-in-normal-and-restore-in-insert
-set keep-english-in-normal[-and-restore-in-insert]
+set keep-english-in-normal-and-restore-in-insert
 " argtextobj插件
 set argtextobj
 
@@ -158,10 +160,17 @@ set commentary
 "Idea action 配置
 
 set ideajoin
+set ideamarks " Sync marks and idea bookmarks
 set idearefactormode=keep
 
 " clear the highlighted search result
 nnoremap <Leader>sc :nohlsearch<CR>
+
+" 这些创建像 o 和 O 这样的换行符，但保持正常模式
+nmap zj o<Esc>k
+nmap zk O<Esc>j
+
+map p <Action>($Paste)
 
 " easymotion
 " nmap <Leader>f <Plug>(easymotion-s)
