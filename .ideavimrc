@@ -8,10 +8,19 @@ let g:EasyMotion_smartcase = 1
 "Use upper target 标签 and 请键入 as a lower case
 let g:EasyMotion_use_upper = 0
 
+" 为IdeaVim插件增加自动切换为英文输入法的功能,
+" idea 需要安装 IdeaVimExtension plugin
 let keep_input_source_in_normal="com.apple.keylayout.ABC"
+set keep-english-in-normal
+set keep-english-in-normal-and-restore-in-insert
+
 
 "语法高亮
 set syntax on
+
+set ideajoin
+set ideamarks " Sync marks and idea bookmarks
+set idearefactormode=keep
 
 "显示行号
 set number relativenumber
@@ -72,13 +81,7 @@ set laststatus=2   "命令行为两行
 
 set fenc=utf-8     "文件编码
 
-set mouse=a        "启用鼠标
-
 set ignorecase     "忽略大小写
-
-" 显示当前模式
-set showmode
-set smartcase
 
 set cursorline     "突出显示当前行
 
@@ -117,8 +120,6 @@ set surround
 
 set exchange
 
-set sneak
-
 set highlightedyank
 
 " {action}ae -> {action}entire-content
@@ -128,10 +129,6 @@ set textobj-entire
 set NERDTree
 " nerdtree
 
-" 为IdeaVim插件增加自动切换为英文输入法的功能,
-" idea 需要安装 IdeaVimExtension plugin
-" set keep-english-in-normal-and-restore-in-insert
-set keep-english-in-normal-and-restore-in-insert
 " argtextobj插件
 set argtextobj
 
@@ -158,10 +155,6 @@ set commentary
 " ==================================================
 
 "Idea action 配置
-
-set ideajoin
-set ideamarks " Sync marks and idea bookmarks
-set idearefactormode=keep
 
 " clear the highlighted search result
 nnoremap <Leader>sc :nohlsearch<CR>
@@ -259,7 +252,6 @@ nnoremap U <C-r>
 
 " 显示 information
 nnoremap <C-I> :<C-u>action QuickJavaDoc<CR>
-
 
 
 " Quit normal mode
@@ -376,8 +368,6 @@ nnoremap <Leader>= <C-a>
 nnoremap <Leader>1 :action ChangeLaf<CR>
 
 " edit vimrc
-nnoremap <leader>ve :e ~/.ideavimrc<CR>
-nnoremap <leader>vw :w!<CR>
 nnoremap <leader>vs :source ~/.ideavimrc<CR>
 
 " 跳转到测试类(没有则自动建立)
