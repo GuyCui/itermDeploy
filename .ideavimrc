@@ -393,6 +393,7 @@ nnoremap <leader>gh :action Vcs.ShowTabbedFileHistory<CR>
 nnoremap ta :action VimFindActionIdAction<CR>
 
 " run and debug
+nnoremap D :<C-u>action ChooseRunConfiguration<CR>
 nnoremap ,d :action Debug<CR>
 
 " 运行
