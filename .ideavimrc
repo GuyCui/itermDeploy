@@ -328,7 +328,7 @@ nnoremap <Leader>A :action ActivateTODOToolWindow<CR>
 nnoremap <Leader>gc :action ActivateCommitToolWindow<CR>
 
 " 隐藏激活面板
-nnoremap <Leader>z :action HideActiveWindow<CR>
+nnoremap <Esc> :action HideActiveWindow<CR>
 
 " 打开idea的文件窗
 nnoremap <Leader>or :action FileMenu<CR>
