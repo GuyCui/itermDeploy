@@ -8,18 +8,20 @@ let g:EasyMotion_smartcase = 1
 "Use upper target 标签 and 请键入 as a lower case
 let g:EasyMotion_use_upper = 0
 
+let g:argtextobj_pairs="[:],(:),<:>"
+
 " 为IdeaVim插件增加自动切换为英文输入法的功能,
 " idea 需要安装 IdeaVimExtension plugin
-let keep_input_source_in_normal="com.apple.keylayout.ABC"
+let keep_input_source_in_normal="com.apple.keylayout.US"
 set keep-english-in-normal
 set keep-english-in-normal-and-restore-in-insert
-
 
 "语法高亮
 set syntax on
 
 set ideajoin
 set ideamarks " Sync marks and idea bookmarks
+set ideastatusicon=gray
 set idearefactormode=keep
 
 "显示行号
@@ -103,6 +105,9 @@ set hlsearch
 " 输入搜索模式时，每输入一个字符，就自动跳到第一个匹配的结果
 set incsearch
 
+"严格的开发模式
+set ideastrictmode
+
 "jk退出insert模式
 inoremap jk <ESC>
 
@@ -110,6 +115,11 @@ inoremap jk <ESC>
 set ReplaceWithRegister
 " _“用_激活。如果要替换双引号里面的_i"
 map _ gr
+
+" Toggle case and start typing. E.g. `<leader>iget`: `property` -> `getProperty`
+map <leader>hi ~hi
+" Remove selection and toggle case. E.g. `v2l<leader>u`: `getProperty` -> `property`
+vmap <leader>u d~h
 
 " ==================================================
 " 插件篇
