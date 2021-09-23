@@ -12,7 +12,7 @@ let g:argtextobj_pairs="[:],(:),<:>"
 
 " 为IdeaVim插件增加自动切换为英文输入法的功能,
 " idea 需要安装 IdeaVimExtension plugin
-let keep_input_source_in_normal="com.apple.keylayout.US"
+let keep_input_source_in_normal="com.apple.keylayout.ABC"
 set keep-english-in-normal
 set keep-english-in-normal-and-restore-in-insert
 
@@ -21,7 +21,8 @@ set syntax on
 
 set ideajoin
 set ideamarks " Sync marks and idea bookmarks
-set ideastatusicon=gray
+" 禁用图标
+set ideastatusicon=disabled
 set idearefactormode=keep
 
 "显示行号
