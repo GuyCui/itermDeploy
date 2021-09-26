@@ -366,10 +366,10 @@ vnoremap <Leader>tl y<CR>:action ActivateTerminalToolWindow<CR>
 nnoremap <Leader>cc :action CopyReferencePopupGroup<CR>
 
 " 上一个页签
-nnoremap tn gt
+nnoremap tk gt
 
 " 下一页签
-nnoremap tp gT
+nnoremap tj gT
 
 " 数字加减
 nnoremap <Leader>- <C-x>
