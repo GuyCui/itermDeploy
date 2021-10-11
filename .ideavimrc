@@ -1,23 +1,12 @@
 " 设置leader为空格
 let mapleader = '\<space>'
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Prettier settings
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Enable auto format on save
-let g:prettier#autoformat = 1
-let g:prettier#autoformat_require_pragma = 0
-let g:prettier#config#single_quote = 'true'
-let g:prettier#config#trailing_comma = 'all'
-
 let g:EasyMotion_override_acejump = 0
 let g:EasyMotion_startofline = 0
 let g:EasyMotion_smartcase = 1
 
 "Use upper target 标签 and 请键入 as a lower case
 let g:EasyMotion_use_upper = 0
-
-let g:argtextobj_pairs="[:],(:),<:>"
 
 " 为IdeaVim插件增加自动切换为英文输入法的功能,
 " idea 需要安装 IdeaVimExtension plugin
@@ -30,9 +19,6 @@ set syntax on
 
 set ideajoin
 set ideamarks " Sync marks and idea bookmarks
-" 禁用图标
-set ideastatusicon=disabled
-set idearefactormode=keep
 
 "显示行号
 set number relativenumber
@@ -118,9 +104,6 @@ set incsearch
 "严格的开发模式
 set ideastrictmode
 
-"jk退出insert模式
-inoremap jk <ESC>
-
 " 替换为注册
 set ReplaceWithRegister
 " _“用_激活。如果要替换双引号里面的_i"
@@ -183,11 +166,12 @@ set commentary
 " clear the highlighted search result
 nnoremap <Leader>sc :nohlsearch<CR>
 
+"jk退出insert模式
+inoremap jk <ESC>
+
 " 这些创建像 o 和 O 这样的换行符，但保持正常模式
 nmap zj o<Esc>k
 nmap zk O<Esc>j
-
-map p <Action>($Paste)
 
 " easymotion
 " nmap <Leader>f <Plug>(easymotion-s)
@@ -207,8 +191,7 @@ nnoremap j gj
 vnoremap j gj
 vnoremap k gk
 
-"
-快速移动半页
+" 快速移动半页
 nnoremap <Leader>d <C-d>
 nnoremap <Leader>u <C-u>
 
@@ -258,13 +241,7 @@ nnoremap <Leader>im :action ImplementMethods<CR>
 " 复制路径
 nnoremap <Leader>cr :action CopyReference<CR>
 
-" basic key mapping
-
 " 在插入模式下快速到行尾和行首
-inoremap <C-h> <Left>
-inoremap <C-j> <Down>
-inoremap <C-k> <Up>
-inoremap <C-l> <Right>
 inoremap <C-a> <Home>
 inoremap <C-e> <End>
 
@@ -276,7 +253,6 @@ nnoremap U <C-r>
 
 " 显示 information
 nnoremap <C-I> :<C-u>action QuickJavaDoc<CR>
-
 
 " Quit normal mode
 nnoremap <Space>q  :action CloseProject<CR>
@@ -467,99 +443,3 @@ vnoremap = :action ReformatCode<CR>
 
 " 优化导入
 nnoremap -- :action OptimizeImports<CR>
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Black settings
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" autocmd BufWritePre *.py execute ':black'
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Load all plugins
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-packloadall
-
-""""""""""""""""""""""""""""""
-" => Visual mode related
-""""""""""""""""""""""""""""""
-" Visual mode pressing * or # searches for the current selection
-" Super useful! From an idea by Michael Naumann
-vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
-vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Colors and Fonts
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Enable syntax highlighting
-syntax enable
-
-if exists('+termguicolors')
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-  set termguicolors
-endif
-
-colorscheme OceanicNext
-
-set background=dark
-
-" Set utf8 as standard encoding and en_US as the standard language
-set encoding=utf8
-
-" Use Unix as the standard file type
-set ffs=unix,dos,mac
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Helper functions
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Returns true if paste mode is enabled
-function! HasPaste()
-    if &paste
-        return 'PASTE MODE  '
-    endif
-    return ''
-endfunction
-
-" Don't close window, when deleting a buffer
-command! Bclose call <SID>BufcloseCloseIt()
-function! <SID>BufcloseCloseIt()
-    let l:currentBufNum = bufnr("%")
-    let l:alternateBufNum = bufnr("#")
-
-    if buflisted(l:alternateBufNum)
-        buffer #
-    else
-        bnext
-    endif
-
-    if bufnr("%") == l:currentBufNum
-        new
-    endif
-
-    if buflisted(l:currentBufNum)
-        execute ("bdelete! ".l:currentBufNum)
-    endif
-endfunction
-
-function! CmdLine(str)
-    call feedkeys(":" . a:str)
-endfunction
-
-function! VisualSelection(direction, extra_filter) range
-    let l:saved_reg = @"
-    execute "normal! vgvy"
-
-    let l:pattern = escape(@", "\\/.*'$^~[]")
-    let l:pattern = substitute(l:pattern, "\n$", "", "")
-
-    if a:direction == 'gv'
-        call CmdLine("Ack '" . l:pattern . "' " )
-    elseif a:direction == 'replace'
-        call CmdLine("%s" . '/'. l:pattern . '/')
-    endif
-
-    let @/ = l:pattern
-    let @" = l:saved_reg
-endfunction
