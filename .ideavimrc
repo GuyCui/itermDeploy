@@ -1,15 +1,6 @@
 " 设置leader为空格
 let mapleader = '\<space>'
 
-let g:EasyMotion_override_acejump = 0
-let g:EasyMotion_startofline = 0
-let g:EasyMotion_smartcase = 1
-
-"Use upper target 标签 and 请键入 as a lower case
-let g:EasyMotion_use_upper = 0
-
-let g:argtextobj_pairs="[:],(:),<:>"
-
 " 为IdeaVim插件增加自动切换为英文输入法的功能,
 " idea 需要安装 IdeaVimExtension plugin
 let keep_input_source_in_normal="com.apple.keylayout.ABC"
@@ -19,36 +10,11 @@ set keep-english-in-normal-and-restore-in-insert
 "语法高亮
 set syntax on
 
-set ideajoin
-set ideamarks " Sync marks and idea bookmarks
-" 禁用图标
-set ideastatusicon=disabled
-set idearefactormode=keep
-
 "显示行号
 set number relativenumber
 
 "显示光标所在位置的行号和列号
 set ruler
-
-" 命令模式下，在底部显示，当前键入的指令
-set showcmd
-
-" 基于缩进或语法进行代码折叠
-set foldmethod=indent
-set foldmethod=syntax
-
-" 启动 vim 时关闭折叠代码
-set nofoldenable
-
- "自动折行
-set wrap
-set shiftwidth=4
-set tabstop=4
-set softtabstop=4
-set smartindent
-set co=5
-set de=on
 
 " 垂直滚动时，光标距离顶部/底部的位置（单位：行）
 set scrolloff=5
@@ -65,13 +31,6 @@ set nocompatible
 
 ” 下一行和上一行的格式相同
 set cindent
-
-" 设置在状态栏显示按键
-set showcmd
-
-” 总是显示状态栏
-set showtabline=2
-set laststatus=2
 
 "设置匹配模式 类似当输入一个左括号时会匹配相应的那个右括号
 set showmatch
@@ -90,8 +49,6 @@ set cursorline     "突出显示当前行
 
 set cursorcolumn   "突出显示当前列
 
-" 对文中的标志折叠
-set fdm=marker
 
 " 允许退格键在以下场景下正常执行
 set backspace=indent,eol,start
@@ -106,14 +63,9 @@ set hlsearch
 " 输入搜索模式时，每输入一个字符，就自动跳到第一个匹配的结果
 set incsearch
 
-"严格的开发模式
-set ideastrictmode
-
-"jk退出insert模式
-inoremap jk <ESC>
-
 " 替换为注册
 set ReplaceWithRegister
+
 " _“用_激活。如果要替换双引号里面的_i"
 map _ gr
 
@@ -138,7 +90,6 @@ set textobj-entire
 
 " 设置目录树
 set NERDTree
-" nerdtree
 
 " argtextobj插件
 set argtextobj
@@ -148,6 +99,7 @@ set easymotion
 
 " multiple-cursors
 set multiple-cursors
+
 " Remap multiple-cursors shortcuts for Mac
 nmap <C-n> <Plug>NextWholeOccurrence
 xmap <C-n> <Plug>NextWholeOccurrence
@@ -167,14 +119,15 @@ set commentary
 
 "Idea action 配置
 
+"jk退出insert模式
+inoremap jk <ESC>
+
 " clear the highlighted search result
 nnoremap <Leader>sc :nohlsearch<CR>
 
 " 这些创建像 o 和 O 这样的换行符，但保持正常模式
 nmap zj o<Esc>k
 nmap zk O<Esc>j
-
-map p <Action>($Paste)
 
 " easymotion
 " nmap <Leader>f <Plug>(easymotion-s)
@@ -194,8 +147,7 @@ nnoremap j gj
 vnoremap j gj
 vnoremap k gk
 
-"
-快速移动半页
+" 快速移动半页
 nnoremap <Leader>d <C-d>
 nnoremap <Leader>u <C-u>
 
@@ -242,16 +194,12 @@ nnoremap <leader>rpi :action ReplaceInPath<CR>
 
 " 实现方法
 nnoremap <Leader>im :action ImplementMethods<CR>
+
 " 复制路径
 nnoremap <Leader>cr :action CopyReference<CR>
 
-" basic key mapping
 
 " 在插入模式下快速到行尾和行首
-inoremap <C-h> <Left>
-inoremap <C-j> <Down>
-inoremap <C-k> <Up>
-inoremap <C-l> <Right>
 inoremap <C-a> <Home>
 inoremap <C-e> <End>
 
@@ -267,7 +215,6 @@ nnoremap <C-I> :<C-u>action QuickJavaDoc<CR>
 
 " Quit normal mode
 nnoremap <Space>q  :action CloseProject<CR>
-nnoremap <Space>Q  :qa!<CR>
 
 " 多窗口操作
 " 清除窗口
