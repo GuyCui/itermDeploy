@@ -149,18 +149,18 @@ nnoremap <Leader>sn :action ShowNavBar<CR>
 inoremap jk <ESC>
 
 " clear the highlighted search result
-nnoremap <Leader>sc :nohlsearch<CR>
+nnoremap <Leader>sc :nohisearch<CR>
 
 " 这些创建像 o 和 O 这样的换行符，但保持正常模式
 nnoremap zj o<Esc>k
 nnoremap zk O<Esc>j
 
 " Press `f` to activate AceJump
-nnoremap f :<C-u>action AceAction<CR>
+nnoremap f :action AceAction<CR>
 
 " Ace jump
 " 在 Target 模式下会跳转到目标，并选中目标整个Word"
-nnoremap F :<C-u>action AceTargetAction<CR>
+nnoremap F :action AceTargetAction<CR>
 
 " easymotion
 
@@ -215,7 +215,7 @@ nnoremap <Leader>re :action RenameElement<CR>
 nnoremap <Leader>rf :action RenameFile<CR>
 
 "移动重构
-noremap <Leader>mo :action Move<CR>
+nnoremap <Leader>mo :action Move<CR>
 
 " 重构变量
 nnoremap <Leader>rp :action Replace<CR>
@@ -223,19 +223,19 @@ nnoremap <Leader>rp :action Replace<CR>
 nnoremap <leader>rpi :action ReplaceInPath<CR>
 
 "成员变量转换为静态变量重构(配合移动重构有奇效)
-noremap <Leader>ms :action MakeStatic<CR>
+nnoremap <Leader>ms :action MakeStatic<CR>
 
 "静态变量转换为成员变量重构
-noremap <Leader>ci :action ConvertToInstanceMethod<CR>
+nnoremap <Leader>ci :action ConvertToInstanceMethod<CR>
 
 "修改方法签名
-noremap <Leader>cs  :action ChangeSignature<CR>
+nnoremap <Leader>cs  :action ChangeSignature<CR>
 
 "抽取类
-noremap <Leader>ec :action ExtractClass<CR>
+nnoremap <Leader>ec :action ExtractClass<CR>
 
 "匿名类到内部类
-noremap <Leader>ai :action AnonymousToInner<CR>
+nnoremap <Leader>ai :action AnonymousToInner<CR>
 
 " 实现方法
 nnoremap <Leader>im :action ImplementMethods<CR>
@@ -244,13 +244,13 @@ nnoremap <Leader>im :action ImplementMethods<CR>
 nnoremap <Leader>cr :action CopyReference<CR>
 
 nnoremap ; :
-nnoremap ` ,
+" nnoremap ` ,
 
 " Redo
 nnoremap U <C-r>
 
 " 显示 information
-nnoremap <C-i> :<C-u>action QuickJavaDoc<CR>
+nnoremap <C-i> :action QuickJavaDoc<CR>
 
 " 多窗口操作
 " 清除窗口
@@ -271,11 +271,11 @@ nnoremap <Leader>ws <C-W>s
 nnoremap <Leader>we <C-W>v
 
 " window operation
-noremap <leader>wn :action NextWindow<CR>
-noremap <leader>wp :action PreviousWindow<CR>
+nnoremap <leader>wn :action NextWindow<CR>
+nnoremap <leader>wp :action PreviousWindow<CR>
 
 " 关闭下方窗口
-noremap <LEADER>jq <C-w>j:q<CR>
+nnoremap <LEADER>jq <C-w>j:q<CR>
 
 " v 列选择
 nnoremap <Leader>v <C-V>
@@ -290,17 +290,17 @@ nnoremap <Leader>Q :action ShowBookmarks<CR>
 
 """"""""""""""""""""""""""""""""""""""跳转篇""""""""""""""""""""""""""""""""""""""
 "跳转 需要安装AceJump插件
-noremap <Leader>tj mm`m:action AceWordAction<CR>
-noremap <Leader>jp mm`m:action AceDeclarationAction<CR>
+nnoremap <Leader>tj mm`m:action AceWordAction<CR>
+nnoremap <Leader>jp mm`m:action AceDeclarationAction<CR>
 
 nnoremap m :action ToggleBookmarkWithMnemonic<CR>
 nnoremap ` :action ShowBookmarks<CR>
 
 "项目之间的跳转(上一个)
-noremap <Leader>nw :action NextProjectWindow<CR>
+nnoremap <Leader>nw :action NextProjectWindow<CR>
 
 "项目之间的跳转(下一个)
-noremap <Leader>pw :action PreviousProjectWindow<CR>
+nnoremap <Leader>pw :action PreviousProjectWindow<CR>
 
 " 最近文件, 最近位置 列表显示
 nnoremap <Leader>e :action RecentFiles<CR>
@@ -313,7 +313,7 @@ nnoremap <leader>b :action Bookmarks<CR>
 nnoremap <leader>gc :action GotoClass<CR>
 
 "文件跳转
-noremap <leader>tf mm`m:action GotoFile<CR>
+nnoremap <leader>tf mm`m:action GotoFile<CR>
 " 搜索任何位置
 nnoremap <leader>se :action SearchEverywhere<CR>
 
@@ -328,7 +328,7 @@ nnoremap <Leader>j :action GotoNextError<CR>
 nnoremap <Leader>ts mm`m:action GotoSymbol<CR>
 
 "url地址跳转
-noremap  <leader>tu  mm`m:action Toolkit.GotoService<CR>
+nnoremap  <leader>tu  mm`m:action Toolkit.GotoService<CR>
 
 " 文本跳转
 nnoremap <leader>fi :action FindInPath<CR>
@@ -374,19 +374,19 @@ nnoremap <Leader>or :action FileMenu<CR>
 nnoremap <Leader>ic :action IntroduceConstant<CR>
 
 "引入方法参数
-noremap <Leader>ip :action IntroduceParameter<CR>
+nnoremap <Leader>ip :action IntroduceParameter<CR>
 
 "引入字段
-noremap <Leader>if :action IntroduceField<CR>
+nnoremap <Leader>if :action IntroduceField<CR>
 
 "引入参数对象(指定参数)
-noremap <Leader>po :action IntroduceParameterObject<CR
+nnoremap <Leader>po :action IntroduceParameterObject<CR>
 
 "方法下放到子类
-noremap <Leader>pd :action MemberPushDown<CR>
+nnoremap <Leader>pd :action MemberPushDown<CR>
 
 "方法上移到父类
-noremap <Leader>pu :action MembersPullUp<CR>
+nnoremap <Leader>pu :action MembersPullUp<CR>
 
 " 引入变量
 nnoremap <Leader>iv :action IntroduceVariable<CR>
@@ -395,20 +395,20 @@ nnoremap <Leader>iv :action IntroduceVariable<CR>
 nnoremap <Leader>sw :action SurroundWith<CR>
 
 " 内联重构(合并无效变量无效方法)
-noremap <Leader>il :action Inline<CR>
+nnoremap <Leader>il :action Inline<CR>
 
 " 提取方法
 nnoremap <Leader>ef :action ExtractMethod<CR>
 vnoremap <Leader>ef :action ExtractFunction<CR>
 
 " 抽取接口重构
-noremap <Leader>ei :action ExtractInterface<CR>
+nnoremap <Leader>ei :action ExtractInterface<CR>
 
 "字段的访问限制
-noremap <Leader>ef :action EncapsulateFields<CR>
+nnoremap <Leader>ef :action EncapsulateFields<CR>
 
 "切换方法为方法对象
-noremap <Leader>rmo :action ReplaceMethodWithMethodObject<CR>
+nnoremap <Leader>rmo :action ReplaceMethodWithMethodObject<CR>
 
 " 打开Terminal工具视图
 nnoremap <Leader>tl Vy<CR>:action ActivateTerminalToolWindow<CR>
@@ -457,29 +457,29 @@ nnoremap <leader>gh :action Vcs.ShowTabbedFileHistory<CR>
 nnoremap ta :action VimFindActionIdAction<CR>
 
 "vim配置操作
-noremap <Leader>vm :action VimActions<CR>
+nnoremap <Leader>vm :action VimActions<CR>
 
 " run and debug
-" 设置运行配置
-nnoremap ,D :<C-u>action ChooseRunConfiguration<CR>
 "debug上次运行的类
 nnoremap ,d :action Debug<CR>
 "debug当前(now)类
-noremap ,dn :action DebugClass<CR>
+nnoremap ,dn :action DebugClass<CR>
+" 设置运行配置
+nnoremap ,dc :action ChooseDebugConfiguration<CR>
 
 " 运行
 nnoremap ,r :action Run<CR>
 
 "运行当前(now)类
-noremap ,rn :action RunClass<CR>
+nnoremap ,rn :action RunClass<CR>
 
 " 编译
 nnoremap ,c :action CompileDirty<CR>
 
 "统计单元测试覆盖率运行上个类
-noremap ,cc :action Coverage<CR>
+nnoremap ,cc :action Coverage<CR>
 "统计单元测试覆盖率运行当前(now)类
-noremap ,cn :action RunCoverage<CR>
+nnoremap ,cn :action RunCoverage<CR>
 
 " 查看断点
 nnoremap ,v :action ViewBreakpoints<CR>
@@ -495,7 +495,7 @@ nnoremap gs :action GotoSuperMethod<CR>
 " 跳转到下个改动处
 nnoremap gn :action JumpToLastChange<CR>
 "跳转到上个改动处
-nnoremap gb mm`m:action JumpToNextChange<CR>
+nnoremap gb :action JumpToNextChange<CR>
 
 " 转到实现
 nnoremap gi :action GotoImplementation<CR>
@@ -548,83 +548,83 @@ vnoremap = :action ReformatCode<CR>
 
 """"""""""""""""""""""""""""""""""""""Debug篇""""""""""""""""""""""""""""""""""""""
 "开启或关闭当前行断点
-noremap ,b :action ToggleLineBreakpoint<CR>
+nnoremap ,b :action ToggleLineBreakpoint<CR>
 "debug时快速计算表达式
-noremap ,qe :action QuickEvaluateExpression <CR>
+nnoremap ,qe :action QuickEvaluateExpression <CR>
 "debug计算器
-noremap ,ee :action EvaluateExpression <CR>
+nnoremap ,ee :action EvaluateExpression <CR>
 "debug强制返回
-noremap ,fr :action Debugger.ForceEarlyReturn<CR>
+nnoremap ,fr :action Debugger.ForceEarlyReturn<CR>
 "添加新的debug观察
-noremap ,daw :action Debugger.AddToWatch<CR>
+nnoremap ,daw :action Debugger.AddToWatch<CR>
 "debug强制运行到光标处
-noremap ,fc :action ForceRunToCursor<CR>
+nnoremap ,fc :action ForceRunToCursor<CR>
 "安装了JRebel且在JRebel debug下才生效,热更新
-noremap ,hs :action Hotswap<CR>
+nnoremap ,hs :action Hotswap<CR>
 "安装了JRebel的debug运行
-noremap ,DD :action JRebel Debug<CR>
+nnoremap ,DD :action JRebel Debug<CR>
 "去除所有断点在当前文件中
-noremap ,rab :action Debugger.RemoveAllBreakpointsInFile<CR>
+nnoremap ,rab :action Debugger.RemoveAllBreakpointsInFile<CR>
 "去除所有断点
-noremap ,raB :action Debugger.RemoveAllBreakpoints<CR>
+nnoremap ,raB :action Debugger.RemoveAllBreakpoints<CR>
 "弹出帧
-noremap ,df :action Debugger.PopFrame<CR>
+nnoremap ,df :action Debugger.PopFrame<CR>
 "显示当前断点位置
-noremap ,pp :action ShowExecutionPoint<CR>
+nnoremap ,pp :action ShowExecutionPoint<CR>
 "流追踪技术
-noremap ,ds :action StreamTracerAction<CR>
+nnoremap ,ds :action StreamTracerAction<CR>
 "哑断点技术
-noremap ,mb :action XDebugger.MuteBreakpoints<CR>
+nnoremap ,mb :action XDebugger.MuteBreakpoints<CR>
 "条件断点编辑
-noremap ,eb :action EditBreakpoint<CR>
+nnoremap ,eb :action EditBreakpoint<CR>
 """"""""""""""""""""""""""""""""""""""信息篇""""""""""""""""""""""""""""""""""""""
 "弹出类型信息
-noremap <Leader>ti :action ExpressionTypeInfo<CR>
+nnoremap <Leader>ti :action ExpressionTypeInfo<CR>
 " 展示错误信息
 nnoremap <Leader>ed :action ShowErrorDescription<CR>
 " 参数信息
 nnoremap <leader>p :action ParameterInfo<CR>
 "显示maven的依赖层级信息
-noremap <Leader>sd  :action ShowUmlDiagram<CR>
+nnoremap <Leader>sd  :action ShowUmlDiagram<CR>
 " 展示文件内的大纲
 nnoremap gf :action FileStructurePopup<CR>
 "查找方法内使用该变量的引用信息
 nnoremap <Leader>su :action ShowUsages<CR>
 "弹出方法结构信息
-noremap <Leader>mh :action MethodHierarchy<CR>
+nnoremap <Leader>mh :action MethodHierarchy<CR>
 "弹出方法调用层级信息
-noremap <Leader>ch :action CallHierarchy<CR>
+nnoremap <Leader>ch :action CallHierarchy<CR>
 " 查看使用案例
 nnoremap <Leader>D :action FindUsages<CR>
 """"""""""""""""""""""""""""""""""""""项目篇""""""""""""""""""""""""""""""""""""""
 "弹出项目结构信息
-noremap <Leader>ps :action ShowProjectStructureSettings<CR>
+nnoremap <Leader>ps :action ShowProjectStructureSettings<CR>
 "关闭项目
-noremap <Leader>cP :action CloseProject<CR>
-noremap <Leader>CP :action CloseProject<CR>
+nnoremap <Leader>cP :action CloseProject<CR>
+nnoremap <Leader>CP :action CloseProject<CR>
 "打开项目
-noremap <Leader>oP :action OpenFile<CR>
-noremap <Leader>OP :action OpenFile<CR>
+nnoremap <Leader>oP :action OpenFile<CR>
+nnoremap <Leader>OP :action OpenFile<CR>
 "新建项目
-noremap <Leader>nP :action NewProject<CR>
-noremap <Leader>NP :action NewProject<CR>
+nnoremap <Leader>nP :action NewProject<CR>
+nnoremap <Leader>NP :action NewProject<CR>
 """"""""""""""""""""""""""""""""""""""SQL篇""""""""""""""""""""""""""""""""""""""
 "sql提交
-noremap <Leader>sc :action Console.Transaction.Commit<CR>
+nnoremap <Leader>tc :action Console.Transaction.Commit<CR>
 "sql回滚
-noremap <Leader>sr :action Console.Transaction.Rollback<CR>
+nnoremap <Leader>sr :action Console.Transaction.Rollback<CR>
 "sql执行
-noremap <Leader>se :action Console.Jdbc.Execute<CR>
+nnoremap <Leader>se :action Console.Jdbc.Execute<CR>
 "sql执行计划
-noremap <Leader>ep :action Console.Jdbc.ExplainPlan<CR>
+nnoremap <Leader>ep :action Console.Jdbc.ExplainPlan<CR>
 "sql-raw执行计划
-noremap <Leader>EP :action Console.Jdbc.ExplainPlan.Raw<CR>
+nnoremap <Leader>EP :action Console.Jdbc.ExplainPlan.Raw<CR>
 "打开ddl语句
-noremap <Leader>dl :action DatabaseView.OpenDdlInConsole<CR>
+nnoremap <Leader>dl :action DatabaseView.OpenDdlInConsole<CR>
 "打开数据库日志窗口,前提安装了MyBatis Log Plugin插件
-noremap <Leader>sl :action TailMyBatisLog0<CR>
-noremap <Leader>SL :action ActivateMyBatisLogToolWindow<CR>
-noremap <Leader>AL :action TailMyBatisLog0<CR>:action ActivateMyBatisLogToolWindow<CR>
+nnoremap <Leader>sl :action TailMyBatisLog0<CR>
+nnoremap <Leader>SL :action ActivateMyBatisLogToolWindow<CR>
+nnoremap <Leader>AL :action TailMyBatisLog0<CR>:action ActivateMyBatisLogToolWindow<CR>
 
 """"""""""""""""""""""""""""""""""""""基础篇""""""""""""""""""""""""""""""""""""""
 "debug神器
@@ -636,18 +636,18 @@ nmap <C-l> :action ForceStepInto<CR>
 "移动专精
 vmap <C-j> <C-e>
 vmap <C-k> <C-y>
-vmap <C-h> 10zh
-vmap <C-l> 10zl
+vmap <C-h> 10zh<CR>
+vmap <C-l> 10zl<CR>
 
-imap <C-j> <Down>
+" imap <C-j> <Down>
 imap <C-k> <Up>
 imap <C-h> <Left>
 imap <C-l> <Right>
 imap <C-i> <CR>
 
 "左右视野
-nnoremap zH 50zh
-nnoremap zL 50zl
+nnoremap zH 50zh<CR>
+nnoremap zL 50zl<CR>
 
 set ideajoin
 set clipboard+=ideaput
