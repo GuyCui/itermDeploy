@@ -1,0 +1,30 @@
+# 仅为配置片段，不是可直接替换的完整 config.yaml。
+# 安装器会保留现有提供器的过滤、前缀等设置。
+proxy-providers:
+  Airport_01:
+    type: file
+    path: /etc/mihomo/provider-cache/Airport_01.yaml
+    # 没有订阅 url，也没有下载 interval；由脚本更新本地文件。
+    health-check:
+      enable: true
+      url: https://cp.cloudflare.com/generate_204
+      interval: 600  # 健康/延迟检查，单位秒，不是更新订阅。
+      timeout: 3000
+      lazy: true
+
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies: [Proxy-Auto]
+  - name: Proxy-Auto
+    type: select
+    empty-fallback: REJECT
+    proxies: [REJECT]
+    use: [Airport_01]
+  - name: Docker-Auto
+    type: select
+    empty-fallback: REJECT
+    proxies: [REJECT]
+    use: [Airport_01]
+
+# 分流规则提供器与 GeoIP/GeoSite 的定时更新继续保留在完整配置中。

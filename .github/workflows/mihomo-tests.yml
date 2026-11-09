@@ -1,0 +1,26 @@
+name: Mihomo offline tests
+
+on:
+  push:
+    paths:
+      - 'mihomo/**'
+      - '.github/workflows/mihomo-tests.yml'
+  pull_request:
+    paths:
+      - 'mihomo/**'
+      - '.github/workflows/mihomo-tests.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -r mihomo/requirements.txt
+      - run: python -W error::ResourceWarning -m unittest discover -p 'test*.py' -v
+        working-directory: mihomo

@@ -1,0 +1,22 @@
+[Unit]
+Description=Check health and choose a faster verified mihomo node
+Wants=mihomo-speed-probe.service
+After=mihomo.service mihomo-speed-probe.service
+
+[Service]
+Type=oneshot
+User=root
+Environment=TZ=Asia/Shanghai
+EnvironmentFile=-/etc/mihomo-health-guard.env
+ExecStart=/usr/bin/python3 /usr/local/lib/mihomo-health-guard/mihomo_health_guard.py
+ExecStart=/usr/bin/python3 /usr/local/lib/mihomo-health-guard/mihomo_speed_guard.py
+SuccessExitStatus=1
+TimeoutStartSec=600
+UMask=0077
+NoNewPrivileges=true
+CapabilityBoundingSet=
+PrivateTmp=true
+PrivateDevices=true
+ProtectSystem=strict
+ReadWritePaths=/var/lib/mihomo-health-guard /var/lib/mihomo-speed-guard
+ProtectHome=true

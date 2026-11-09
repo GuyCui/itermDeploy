@@ -1,0 +1,11 @@
+[Unit]
+Description=Run mihomo HTTPS health guard after each check round
+
+[Timer]
+OnActiveSec=15s
+OnUnitInactiveSec=15s
+AccuracySec=1s
+Unit=mihomo-health-guard.service
+
+[Install]
+WantedBy=timers.target

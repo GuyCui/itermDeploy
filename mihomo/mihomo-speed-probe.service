@@ -1,0 +1,24 @@
+[Unit]
+Description=Isolated mihomo for node throughput measurements
+Wants=network-online.target
+After=network-online.target mihomo.service
+
+[Service]
+Type=simple
+User=root
+UMask=0077
+Environment=SAFE_PATHS=/etc/mihomo/provider-cache
+ExecStartPre=/usr/bin/python3 /usr/local/lib/mihomo-health-guard/speed_network.py start
+ExecStart=/usr/bin/mihomo -d /var/lib/mihomo-speed-guard/sidecar -f /var/lib/mihomo-speed-guard/sidecar/config.json
+ExecStopPost=/usr/bin/python3 /usr/local/lib/mihomo-health-guard/speed_network.py stop
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_RAW
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+ReadWritePaths=/var/lib/mihomo-speed-guard
+
+[Install]
+WantedBy=multi-user.target

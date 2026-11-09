@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+.venv/
+config.yaml
+settings.json
+state.json
+provider-cache/
+backups/
+*.log
+*.tar.gz
+*.zip

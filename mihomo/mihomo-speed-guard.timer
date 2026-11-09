@@ -1,0 +1,11 @@
+[Unit]
+Description=Keep mihomo healthy and periodically compare download throughput
+
+[Timer]
+OnActiveSec=15s
+OnUnitInactiveSec=15s
+AccuracySec=1s
+Unit=mihomo-speed-guard.service
+
+[Install]
+WantedBy=timers.target

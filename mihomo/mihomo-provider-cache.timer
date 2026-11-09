@@ -1,0 +1,11 @@
+[Unit]
+Description=Refresh the validated SublinkPro cache every ten minutes
+
+[Timer]
+OnBootSec=2min
+OnUnitInactiveSec=10min
+AccuracySec=15s
+Unit=mihomo-provider-cache.service
+
+[Install]
+WantedBy=timers.target

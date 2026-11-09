@@ -1,0 +1,27 @@
+[Unit]
+Description=Select verified mihomo nodes using HTTPS health checks
+Wants=network-online.target
+After=network-online.target mihomo.service
+
+[Service]
+Type=oneshot
+User=root
+Group=root
+Environment=TZ=Asia/Shanghai
+EnvironmentFile=-/etc/mihomo-health-guard.env
+ExecStart=/usr/bin/python3 /usr/local/lib/mihomo-health-guard/mihomo_health_guard.py
+TimeoutStartSec=300
+StateDirectory=mihomo-health-guard
+StateDirectoryMode=0700
+UMask=0077
+NoNewPrivileges=true
+CapabilityBoundingSet=
+PrivateTmp=true
+PrivateDevices=true
+ProtectSystem=strict
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
